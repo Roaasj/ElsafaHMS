@@ -1,0 +1,13 @@
+--- test/baseline/scenario.js	2026-11-20 19:21:01.098698259 +0200
++++ test/baseline/scenario.js (مقترح)	2026-11-20 20:41:02.129522465 +0200
+@@ -66,7 +66,9 @@
+     must(await mgr.put('/api/admin/ticket-settings', { ticketMode: 'off' }), 200, 'ticket-settings');
+     must(await mgr.put('/api/admin/settings', { checkoutTime: '23:59' }), 200, 'settings');
+     const svc = Object.fromEntries((await rec.get('/api/catalog/services')).body.services.map((s) => [s.code, s]));
+-    const docs = (await rec.get('/api/catalog/doctors')).body.doctors;
++    // الدكاترة بالـid الثابت (مش بترتيب الـAPI): الترتيب بيتغيّر مع الوقت (presentNow حسب مواعيد الدكتور) فكان السيناريو بيفشل حسب ساعة التشغيل
++    const allDocs = (await rec.get('/api/catalog/doctors')).body.doctors;
++    const docs = [3, 5, 6].map((id) => allDocs.find((d) => d.id === id));
+     const mgrId = (await mgr.get('/api/me')).body.user.id;
+     let pn = 0;
+     const patient = async (extra = {}) => { pn++; return must(await rec.post('/api/patients', { name: `مريض أساسي رقم ${pn} علي`, phone: `0108800${String(pn).padStart(4, '0')}`, ageYears: 40, sex: 'M', confirmDuplicatePhone: true, ...extra }), 201, 'patient').patient; };

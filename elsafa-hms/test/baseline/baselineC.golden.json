@@ -1,0 +1,5514 @@
+{
+ "_about": "خط أساسي C: مبيعات ومرتجعات على تشغيلات متعددة التكلفة، رصيد سالب، تحويلات وإعدام وجرد، تقارير المخزن، وتصدير Excel. أي اختلاف غير مفسَّر = فشل المرحلة. اتولّد بـ test/baseline/recordC.js",
+ "_recordedWith": {
+  "node": "v22.23.5",
+  "app": "0.16.0",
+  "engine": "sqlite (in-memory)"
+ },
+ "steps": [
+  {
+   "name": "أول مدة صيدلية: سيفترياكسون (3 تشغيلات)",
+   "status": 201
+  },
+  {
+   "name": "أول مدة صيدلية: أموكسي (علب وشرايط)",
+   "status": 201
+  },
+  {
+   "name": "أول مدة صيدلية: كيتورولاك",
+   "status": 201
+  },
+  {
+   "name": "أول مدة صيدلية: كانيولا",
+   "status": 201
+  },
+  {
+   "name": "أول مدة صيدلية: جوانتي وسرنجة وشاش",
+   "status": 201
+  },
+  {
+   "name": "بيع 15 فيال (C1 كلها + 5 من C2)",
+   "receipt": 1
+  },
+  {
+   "name": "مرتجع 7 من 15 (آخر اللي اتصرف يرجع الأول: 5 على C2 و2 على C1)",
+   "status": 201
+  },
+  {
+   "name": "بيع علبتين (20 فيال) عبر 3 تشغيلات"
+  },
+  {
+   "name": "مرتجع علبة (10 فيال)",
+   "status": 201
+  },
+  {
+   "name": "بيع أموكسي علبتين ثم 3 شرايط (يعدّي من A1 لـA2)"
+  },
+  {
+   "name": "مرتجع شريطين",
+   "status": 201
+  },
+  {
+   "name": "تعديل بند غير مدفوع من 60 لـ55 (يرجّع 5 على N2)",
+   "status": 200
+  },
+  {
+   "name": "شيل البند غير المدفوع (يرجّع الباقي)",
+   "status": 200
+  },
+  {
+   "name": "إلغاء إيصال بيع كانيولا 60 (متعدد التشغيلات)",
+   "status": 201
+  },
+  {
+   "name": "بيع كيتورولاك 5 والرصيد 3 بدون صلاحية سالب (مرفوض)",
+   "status": 409,
+   "err": "الرصيد في «الصيدلية» مايكفيش لـ «كيتورولاك 30 مجم»: الموجود 3 والمطلوب 5"
+  },
+  {
+   "name": "بيع كيتورولاك 5 بصلاحية سالب (3 من K1 و2 سالب)",
+   "receipt": 10
+  },
+  {
+   "name": "استلام مورد يسدّد السالب (6 أمبول)",
+   "status": 201
+  },
+  {
+   "name": "تحويل 22 قرص أموكسي للطوارئ (تشغيلتين)"
+  },
+  {
+   "name": "استلام التحويل",
+   "status": 200
+  },
+  {
+   "name": "إعدام 1.5 من A2",
+   "status": 201
+  },
+  {
+   "name": "تسليم الجرد",
+   "status": 200
+  },
+  {
+   "name": "اعتماد الجرد (فروق على تشغيلات مختلفة التكلفة)",
+   "status": 200
+  },
+  {
+   "name": "بيع أموكسي 9 من الطوارئ (من التشغيلات المحوّلة)"
+  },
+  {
+   "name": "أرّخنا حركات الجوانتي والسرنجة 200 يوم وخلّينا تشغيلة السرنجة منتهية"
+  }
+ ],
+ "checkpoints": {
+  "afterSales": {
+   "3:1:C1": "0.0000",
+   "3:1:C2": "0.0000",
+   "3:1:C3": "20.0000",
+   "3:43:A1": "7.0000",
+   "3:43:A2": "28.0000",
+   "3:6:K1": "3.0000",
+   "3:25:N1": "50.0000",
+   "3:25:N2": "20.0000",
+   "3:31:G1": "50.0000",
+   "3:28:S1": "100.0000",
+   "3:32:Z1": "12.5000"
+  },
+  "afterNegative": {
+   "3:1:C1": "0.0000",
+   "3:1:C2": "0.0000",
+   "3:1:C3": "20.0000",
+   "3:43:A1": "7.0000",
+   "3:43:A2": "28.0000",
+   "3:6:K1": "0.0000",
+   "3:25:N1": "50.0000",
+   "3:25:N2": "20.0000",
+   "3:31:G1": "50.0000",
+   "3:28:S1": "100.0000",
+   "3:32:Z1": "12.5000",
+   "3:6:loose#12": "0.0000",
+   "3:6:K2": "4.0000"
+  },
+  "afterTransfer": {
+   "3:1:C1": "0.0000",
+   "3:1:C2": "0.0000",
+   "3:1:C3": "20.0000",
+   "3:43:A1": "0.0000",
+   "3:43:A2": "13.0000",
+   "3:6:K1": "0.0000",
+   "3:25:N1": "50.0000",
+   "3:25:N2": "20.0000",
+   "3:31:G1": "50.0000",
+   "3:28:S1": "100.0000",
+   "3:32:Z1": "12.5000",
+   "3:6:loose#12": "0.0000",
+   "3:6:K2": "4.0000",
+   "12:43:A1": "7.0000",
+   "12:43:A2": "15.0000"
+  },
+  "afterWaste": {
+   "3:1:C1": "0.0000",
+   "3:1:C2": "0.0000",
+   "3:1:C3": "20.0000",
+   "3:43:A1": "0.0000",
+   "3:43:A2": "11.5000",
+   "3:6:K1": "0.0000",
+   "3:25:N1": "50.0000",
+   "3:25:N2": "20.0000",
+   "3:31:G1": "50.0000",
+   "3:28:S1": "100.0000",
+   "3:32:Z1": "12.5000",
+   "3:6:loose#12": "0.0000",
+   "3:6:K2": "4.0000",
+   "12:43:A1": "7.0000",
+   "12:43:A2": "15.0000"
+  },
+  "final": {
+   "3:1:C1": "0.0000",
+   "3:1:C2": "0.0000",
+   "3:1:C3": "22.5000",
+   "3:43:A1": "0.0000",
+   "3:43:A2": "10.5000",
+   "3:6:K1": "0.0000",
+   "3:25:N1": "49.0000",
+   "3:25:N2": "22.5000",
+   "3:31:G1": "49.0000",
+   "3:28:S1": "102.5000",
+   "3:32:Z1": "12.5000",
+   "3:6:loose#12": "0.0000",
+   "3:6:K2": "4.0000",
+   "12:43:A1": "0.0000",
+   "12:43:A2": "13.0000",
+   "3:31:G-NEW": "4.0000"
+  }
+ },
+ "reports": {
+  "value": {
+   "status": 200,
+   "body": {
+    "stores": [
+     {
+      "id": 1,
+      "name": "مخزن الأدوية الرئيسي",
+      "kind": "main",
+      "kindName": "رئيسي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 2,
+      "name": "مخزن المستلزمات الرئيسي",
+      "kind": "main",
+      "kindName": "رئيسي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 3,
+      "name": "الصيدلية",
+      "kind": "pharmacy",
+      "kindName": "صيدلية",
+      "items": 7,
+      "cost": "375.9300",
+      "sale": "3895.5000",
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 4,
+      "name": "مخزن الدور 3",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 5,
+      "name": "مخزن الدور 4",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 6,
+      "name": "مخزن الدور 6",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 7,
+      "name": "مخزن الدور 7",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 8,
+      "name": "مخزن الدور 8",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 9,
+      "name": "مخزن العمليات",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 10,
+      "name": "مخزن العناية",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 11,
+      "name": "مخزن الحضانة",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 12,
+      "name": "مخزن الطوارئ",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 1,
+      "cost": "61.9000",
+      "sale": 117,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 13,
+      "name": "مخزن العيادات",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 14,
+      "name": "مخزن الأشعة",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     },
+     {
+      "id": 15,
+      "name": "مخزن المعمل",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": 0,
+      "cost": 0,
+      "sale": 0,
+      "noCost": 0,
+      "negative": 0
+     }
+    ],
+    "items": [
+     {
+      "id": 25,
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "qty": "71.5000",
+      "cost": "128.5000",
+      "sale": 1287
+     },
+     {
+      "id": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "qty": "23.5000",
+      "cost": "111.8900",
+      "sale": "211.5000"
+     },
+     {
+      "id": 1,
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 10
+       }
+      ],
+      "qty": "22.5000",
+      "cost": "79.9900",
+      "sale": "1912.5000"
+     },
+     {
+      "id": 28,
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 100
+       }
+      ],
+      "qty": "102.5000",
+      "cost": "56.9400",
+      "sale": "307.5000"
+     },
+     {
+      "id": 31,
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "qty": 53,
+      "cost": "35.3300",
+      "sale": 106
+     },
+     {
+      "id": 32,
+      "name": "شاش معقم",
+      "code": "S-0008",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "باكو",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "كرتونة",
+        "factor": 50
+       }
+      ],
+      "qty": "12.5000",
+      "cost": "14.3700",
+      "sale": 100
+     },
+     {
+      "id": 6,
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 3
+       }
+      ],
+      "qty": 4,
+      "cost": "10.8000",
+      "sale": 88
+     }
+    ],
+    "totals": {
+     "cost": "437.8300",
+     "sale": "4012.5000",
+     "items": 7,
+     "negative": 0
+    }
+   }
+  },
+  "valuePharmacy": {
+   "status": 200,
+   "body": {
+    "stores": [
+     {
+      "id": 3,
+      "name": "الصيدلية",
+      "kind": "pharmacy",
+      "kindName": "صيدلية",
+      "items": 7,
+      "cost": "375.9300",
+      "sale": "3895.5000",
+      "noCost": 0,
+      "negative": 0
+     }
+    ],
+    "items": [
+     {
+      "id": 25,
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "qty": "71.5000",
+      "cost": "128.5000",
+      "sale": 1287
+     },
+     {
+      "id": 1,
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 10
+       }
+      ],
+      "qty": "22.5000",
+      "cost": "79.9900",
+      "sale": "1912.5000"
+     },
+     {
+      "id": 28,
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 100
+       }
+      ],
+      "qty": "102.5000",
+      "cost": "56.9400",
+      "sale": "307.5000"
+     },
+     {
+      "id": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "qty": "10.5000",
+      "cost": "49.9900",
+      "sale": "94.5000"
+     },
+     {
+      "id": 31,
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "qty": 53,
+      "cost": "35.3300",
+      "sale": 106
+     },
+     {
+      "id": 32,
+      "name": "شاش معقم",
+      "code": "S-0008",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "باكو",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "كرتونة",
+        "factor": 50
+       }
+      ],
+      "qty": "12.5000",
+      "cost": "14.3700",
+      "sale": 100
+     },
+     {
+      "id": 6,
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 3
+       }
+      ],
+      "qty": 4,
+      "cost": "10.8000",
+      "sale": 88
+     }
+    ],
+    "totals": {
+     "cost": "375.9300",
+     "sale": "3895.5000",
+     "items": 7,
+     "negative": 0
+    }
+   }
+  },
+  "ledgerCeftriaxone": {
+   "status": 200,
+   "body": {
+    "item": {
+     "id": 1,
+     "name": "سيفترياكسون 1 جم",
+     "code": "D-0001",
+     "kind": "drug",
+     "units": [
+      {
+       "key": "base",
+       "name": "فيال",
+       "factor": 1
+      },
+      {
+       "key": "pack",
+       "name": "علبة",
+       "factor": 10
+      }
+     ]
+    },
+    "store": "الصيدلية",
+    "opening": 0,
+    "in": "57.5000",
+    "out": 35,
+    "closing": "22.5000",
+    "moves": [
+     {
+      "id": 1,
+      "kind": "opening",
+      "kindName": "رصيد أول المدة",
+      "store": "الصيدلية",
+      "batchNo": "C1",
+      "expiry": "<D>",
+      "qty": 10,
+      "balance": 10,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "رصيد أول المدة 1"
+     },
+     {
+      "id": 2,
+      "kind": "opening",
+      "kindName": "رصيد أول المدة",
+      "store": "الصيدلية",
+      "batchNo": "C2",
+      "expiry": "<D>",
+      "qty": 8,
+      "balance": 18,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "رصيد أول المدة 1"
+     },
+     {
+      "id": 3,
+      "kind": "opening",
+      "kindName": "رصيد أول المدة",
+      "store": "الصيدلية",
+      "batchNo": "C3",
+      "expiry": "<D>",
+      "qty": 20,
+      "balance": 38,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "رصيد أول المدة 1"
+     },
+     {
+      "id": 12,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "C1",
+      "expiry": "<D>",
+      "qty": -10,
+      "balance": 28,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 1"
+     },
+     {
+      "id": 13,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "C2",
+      "expiry": "<D>",
+      "qty": -5,
+      "balance": 23,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 1"
+     },
+     {
+      "id": 14,
+      "kind": "sale_back",
+      "kindName": "مرتجع بيع",
+      "store": "الصيدلية",
+      "batchNo": "C2",
+      "expiry": "<D>",
+      "qty": 5,
+      "balance": 28,
+      "by": "مشرف الاستقبال",
+      "note": "مرتجع جزئي متعدد"
+     },
+     {
+      "id": 15,
+      "kind": "sale_back",
+      "kindName": "مرتجع بيع",
+      "store": "الصيدلية",
+      "batchNo": "C1",
+      "expiry": "<D>",
+      "qty": 2,
+      "balance": 30,
+      "by": "مشرف الاستقبال",
+      "note": "مرتجع جزئي متعدد"
+     },
+     {
+      "id": 16,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "C1",
+      "expiry": "<D>",
+      "qty": -2,
+      "balance": 28,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 2"
+     },
+     {
+      "id": 17,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "C2",
+      "expiry": "<D>",
+      "qty": -8,
+      "balance": 20,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 2"
+     },
+     {
+      "id": 18,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "C3",
+      "expiry": "<D>",
+      "qty": -10,
+      "balance": 10,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 2"
+     },
+     {
+      "id": 19,
+      "kind": "sale_back",
+      "kindName": "مرتجع بيع",
+      "store": "الصيدلية",
+      "batchNo": "C3",
+      "expiry": "<D>",
+      "qty": 10,
+      "balance": 20,
+      "by": "مشرف الاستقبال",
+      "note": "مرتجع علبة"
+     },
+     {
+      "id": 43,
+      "kind": "count",
+      "kindName": "فرق جرد",
+      "store": "الصيدلية",
+      "batchNo": "C3",
+      "expiry": "<D>",
+      "qty": "2.5000",
+      "balance": "22.5000",
+      "by": "د. مدير المستشفى",
+      "note": "جرد 1"
+     }
+    ]
+   }
+  },
+  "ledgerAmoxi": {
+   "status": 200,
+   "body": {
+    "item": {
+     "id": 43,
+     "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+     "code": "D-0025",
+     "kind": "drug",
+     "units": [
+      {
+       "key": "base",
+       "name": "قرص",
+       "factor": 1
+      },
+      {
+       "key": "mid",
+       "name": "شريط",
+       "factor": 7
+      },
+      {
+       "key": "pack",
+       "name": "علبة",
+       "factor": 14
+      }
+     ]
+    },
+    "store": "كل المخازن",
+    "opening": 0,
+    "in": 106,
+    "out": "82.5000",
+    "closing": "23.5000",
+    "moves": [
+     {
+      "id": 4,
+      "kind": "opening",
+      "kindName": "رصيد أول المدة",
+      "store": "الصيدلية",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": 42,
+      "balance": 42,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "رصيد أول المدة 2"
+     },
+     {
+      "id": 5,
+      "kind": "opening",
+      "kindName": "رصيد أول المدة",
+      "store": "الصيدلية",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": 28,
+      "balance": 70,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "رصيد أول المدة 2"
+     },
+     {
+      "id": 20,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": -28,
+      "balance": 42,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 3"
+     },
+     {
+      "id": 21,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": -14,
+      "balance": 28,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 3"
+     },
+     {
+      "id": 22,
+      "kind": "sale",
+      "kindName": "بيع صيدلية",
+      "store": "الصيدلية",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": -7,
+      "balance": 21,
+      "by": "د. أمل · الصيدلية",
+      "note": "زيارة 3"
+     },
+     {
+      "id": 23,
+      "kind": "sale_back",
+      "kindName": "مرتجع بيع",
+      "store": "الصيدلية",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": 7,
+      "balance": 28,
+      "by": "مشرف الاستقبال",
+      "note": "مرتجع شريط"
+     },
+     {
+      "id": 24,
+      "kind": "sale_back",
+      "kindName": "مرتجع بيع",
+      "store": "الصيدلية",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": 7,
+      "balance": 35,
+      "by": "مشرف الاستقبال",
+      "note": "مرتجع شريط"
+     },
+     {
+      "id": 38,
+      "kind": "transfer_out",
+      "kindName": "تحويل لمخزن",
+      "store": "الصيدلية",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": -7,
+      "balance": 28,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "تحويل 1"
+     },
+     {
+      "id": 39,
+      "kind": "transfer_out",
+      "kindName": "تحويل لمخزن",
+      "store": "الصيدلية",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": -15,
+      "balance": 13,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "تحويل 1"
+     },
+     {
+      "id": 40,
+      "kind": "transfer_in",
+      "kindName": "تحويل من مخزن",
+      "store": "مخزن الطوارئ",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": 7,
+      "balance": 20,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "تحويل 1"
+     },
+     {
+      "id": 41,
+      "kind": "transfer_in",
+      "kindName": "تحويل من مخزن",
+      "store": "مخزن الطوارئ",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": 15,
+      "balance": 35,
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "تحويل 1"
+     },
+     {
+      "id": 42,
+      "kind": "waste",
+      "kindName": "إعدام",
+      "store": "الصيدلية",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": "-1.5000",
+      "balance": "33.5000",
+      "by": "أ. نهى · حسابات المخزن",
+      "note": "تالف"
+     },
+     {
+      "id": 48,
+      "kind": "count",
+      "kindName": "فرق جرد",
+      "store": "الصيدلية",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": -1,
+      "balance": "32.5000",
+      "by": "د. مدير المستشفى",
+      "note": "جرد 1"
+     },
+     {
+      "id": 50,
+      "kind": "visit",
+      "kindName": "صرف في زيارة",
+      "store": "مخزن الطوارئ",
+      "batchNo": "A1",
+      "expiry": "<D>",
+      "qty": -7,
+      "balance": "25.5000",
+      "by": "موظف استقبال",
+      "note": "زيارة 7"
+     },
+     {
+      "id": 51,
+      "kind": "visit",
+      "kindName": "صرف في زيارة",
+      "store": "مخزن الطوارئ",
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "qty": -2,
+      "balance": "23.5000",
+      "by": "موظف استقبال",
+      "note": "زيارة 7"
+     }
+    ]
+   }
+  },
+  "consumption": {
+   "status": 200,
+   "body": {
+    "store": null,
+    "stores": [
+     {
+      "id": 3,
+      "name": "الصيدلية",
+      "kind": "pharmacy",
+      "dept": null,
+      "useCost": "323.9900",
+      "useSale": 1955,
+      "waste": "7.1400",
+      "countDiff": "9.7900",
+      "lines": 24
+     },
+     {
+      "id": 12,
+      "name": "مخزن الطوارئ",
+      "kind": "sub",
+      "dept": "الطوارئ",
+      "useCost": "59.5200",
+      "useSale": 81,
+      "waste": 0,
+      "countDiff": 0,
+      "lines": 2
+     }
+    ],
+    "items": [
+     {
+      "id": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "qty": 44,
+      "cost": "309.5200",
+      "sale": 396
+     },
+     {
+      "id": 1,
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 10
+       }
+      ],
+      "qty": 18,
+      "cost": "60.6000",
+      "sale": 1530
+     },
+     {
+      "id": 6,
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 3
+       }
+      ],
+      "qty": 5,
+      "cost": "13.3900",
+      "sale": 110
+     }
+    ],
+    "totals": {
+     "useCost": "383.5100",
+     "useSale": 2036,
+     "waste": "7.1400",
+     "countDiff": "9.7900"
+    }
+   }
+  },
+  "consumptionByItem": {
+   "status": 200,
+   "body": {
+    "store": null,
+    "stores": [
+     {
+      "id": 3,
+      "name": "الصيدلية",
+      "kind": "pharmacy",
+      "dept": null,
+      "useCost": "323.9900",
+      "useSale": 1955,
+      "waste": "7.1400",
+      "countDiff": "9.7900",
+      "lines": 24
+     },
+     {
+      "id": 12,
+      "name": "مخزن الطوارئ",
+      "kind": "sub",
+      "dept": "الطوارئ",
+      "useCost": "59.5200",
+      "useSale": 81,
+      "waste": 0,
+      "countDiff": 0,
+      "lines": 2
+     }
+    ],
+    "items": [
+     {
+      "id": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "qty": 44,
+      "cost": "309.5200",
+      "sale": 396
+     },
+     {
+      "id": 1,
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 10
+       }
+      ],
+      "qty": 18,
+      "cost": "60.6000",
+      "sale": 1530
+     },
+     {
+      "id": 6,
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 3
+       }
+      ],
+      "qty": 5,
+      "cost": "13.3900",
+      "sale": 110
+     }
+    ],
+    "totals": {
+     "useCost": "383.5100",
+     "useSale": 2036,
+     "waste": "7.1400",
+     "countDiff": "9.7900"
+    }
+   }
+  },
+  "pharmacy": {
+   "status": 200,
+   "body": {
+    "days": [
+     {
+      "sold": 4606,
+      "back": 2651,
+      "count": 6,
+      "net": 1955
+     }
+    ],
+    "items": [
+     {
+      "id": 1,
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 10
+       }
+      ],
+      "qty": 18,
+      "amount": 1530,
+      "cost": "63.9900",
+      "margin": "1466.0100"
+     },
+     {
+      "id": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "qty": 35,
+      "amount": 315,
+      "cost": "166.6500",
+      "margin": "148.3500"
+     },
+     {
+      "id": 6,
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 3
+       }
+      ],
+      "qty": 5,
+      "amount": 110,
+      "cost": "13.5000",
+      "margin": "96.5000"
+     }
+    ],
+    "people": [
+     {
+      "name": "د. أمل · الصيدلية",
+      "sold": 4496,
+      "back": 0,
+      "count": 5,
+      "net": 4496
+     },
+     {
+      "name": "مشرف الاستقبال",
+      "sold": 0,
+      "back": 1571,
+      "count": 0,
+      "net": -1571
+     },
+     {
+      "name": "د. مدير المستشفى",
+      "sold": 110,
+      "back": 1080,
+      "count": 1,
+      "net": -970
+     }
+    ],
+    "totals": {
+     "sold": 4606,
+     "back": 2651,
+     "net": 1955,
+     "count": 6,
+     "cash": 1955,
+     "card": 0,
+     "credit": 0,
+     "payer": 0,
+     "avg": "325.8300"
+    }
+   }
+  },
+  "expiry90": {
+   "status": 200,
+   "body": {
+    "days": 90,
+    "batches": [
+     {
+      "batchId": 10,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 28,
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 100
+       }
+      ],
+      "batchNo": "S1",
+      "expiry": "<D>",
+      "daysLeft": -10,
+      "expired": true,
+      "qty": "102.5000",
+      "value": "56.9400"
+     },
+     {
+      "batchId": 7,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 25,
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "N1",
+      "expiry": "<D>",
+      "daysLeft": 30,
+      "expired": false,
+      "qty": 49,
+      "value": "85.7500"
+     },
+     {
+      "batchId": 8,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 25,
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "N2",
+      "expiry": "<D>",
+      "daysLeft": 60,
+      "expired": false,
+      "qty": "22.5000",
+      "value": "42.7500"
+     }
+    ],
+    "totals": {
+     "expired": "56.9400",
+     "soon": "128.5000",
+     "expiredN": 1,
+     "soonN": 2
+    }
+   }
+  },
+  "expiry730": {
+   "status": 200,
+   "body": {
+    "days": 730,
+    "batches": [
+     {
+      "batchId": 10,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 28,
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 100
+       }
+      ],
+      "batchNo": "S1",
+      "expiry": "<D>",
+      "daysLeft": -10,
+      "expired": true,
+      "qty": "102.5000",
+      "value": "56.9400"
+     },
+     {
+      "batchId": 7,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 25,
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "N1",
+      "expiry": "<D>",
+      "daysLeft": 30,
+      "expired": false,
+      "qty": 49,
+      "value": "85.7500"
+     },
+     {
+      "batchId": 8,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 25,
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "N2",
+      "expiry": "<D>",
+      "daysLeft": 60,
+      "expired": false,
+      "qty": "22.5000",
+      "value": "42.7500"
+     },
+     {
+      "batchId": 13,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 6,
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 3
+       }
+      ],
+      "batchNo": "K2",
+      "expiry": "<D>",
+      "daysLeft": 250,
+      "expired": false,
+      "qty": 4,
+      "value": "10.8000"
+     },
+     {
+      "batchId": 3,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 1,
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 10
+       }
+      ],
+      "batchNo": "C3",
+      "expiry": "<D>",
+      "daysLeft": 400,
+      "expired": false,
+      "qty": "22.5000",
+      "value": "79.9900"
+     },
+     {
+      "batchId": 16,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 31,
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "G-NEW",
+      "expiry": "<D>",
+      "daysLeft": 450,
+      "expired": false,
+      "qty": 4,
+      "value": "2.6700"
+     },
+     {
+      "batchId": 5,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "daysLeft": 500,
+      "expired": false,
+      "qty": "10.5000",
+      "value": "49.9900"
+     },
+     {
+      "batchId": 15,
+      "store": "مخزن الطوارئ",
+      "storeId": 12,
+      "itemId": 43,
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": 1
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": 7
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 14
+       }
+      ],
+      "batchNo": "A2",
+      "expiry": "<D>",
+      "daysLeft": 500,
+      "expired": false,
+      "qty": 13,
+      "value": "61.9000"
+     },
+     {
+      "batchId": 9,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 31,
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "G1",
+      "expiry": "<D>",
+      "daysLeft": 500,
+      "expired": false,
+      "qty": 49,
+      "value": "32.6600"
+     },
+     {
+      "batchId": 11,
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 32,
+      "name": "شاش معقم",
+      "code": "S-0008",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "باكو",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "كرتونة",
+        "factor": 50
+       }
+      ],
+      "batchNo": "Z1",
+      "expiry": "<D>",
+      "daysLeft": 500,
+      "expired": false,
+      "qty": "12.5000",
+      "value": "14.3700"
+     }
+    ],
+    "totals": {
+     "expired": "56.9400",
+     "soon": "380.8800",
+     "expiredN": 1,
+     "soonN": 9
+    }
+   }
+  },
+  "stagnant90": {
+   "status": 200,
+   "body": {
+    "days": 90,
+    "items": [
+     {
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 28,
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 100
+       }
+      ],
+      "qty": "102.5000",
+      "value": "56.9400",
+      "lastOut": null
+     },
+     {
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 31,
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "qty": 53,
+      "value": "35.3300",
+      "lastOut": null
+     }
+    ],
+    "totals": {
+     "value": "92.2700",
+     "count": 2
+    }
+   }
+  },
+  "stagnant30": {
+   "status": 200,
+   "body": {
+    "days": 30,
+    "items": [
+     {
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 28,
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 100
+       }
+      ],
+      "qty": "102.5000",
+      "value": "56.9400",
+      "lastOut": null
+     },
+     {
+      "store": "الصيدلية",
+      "storeId": 3,
+      "itemId": 31,
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": 1
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": 50
+       }
+      ],
+      "qty": 53,
+      "value": "35.3300",
+      "lastOut": null
+     }
+    ],
+    "totals": {
+     "value": "92.2700",
+     "count": 2
+    }
+   }
+  }
+ },
+ "xlsx": {
+  "value": [
+   {
+    "name": "قيمة-المخزون-<D>",
+    "rows": [
+     [
+      "قيمة المخزون · <D>",
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "المخزن",
+      "النوع",
+      "عدد الأصناف",
+      "القيمة بالتكلفة",
+      "القيمة بسعر البيع",
+      "أصناف من غير تكلفة",
+      "تشغيلات سالبة"
+     ],
+     [
+      "مخزن الأدوية الرئيسي",
+      "رئيسي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن المستلزمات الرئيسي",
+      "رئيسي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "الصيدلية",
+      "صيدلية",
+      7,
+      "375.9300",
+      "3895.5000",
+      0,
+      0
+     ],
+     [
+      "مخزن الدور 3",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الدور 4",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الدور 6",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الدور 7",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الدور 8",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن العمليات",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن العناية",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الحضانة",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الطوارئ",
+      "فرعي",
+      1,
+      "61.9000",
+      117,
+      0,
+      0
+     ],
+     [
+      "مخزن العيادات",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن الأشعة",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "مخزن المعمل",
+      "فرعي",
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     [
+      "الإجمالي",
+      null,
+      7,
+      "437.8300",
+      "4012.5000",
+      null,
+      0
+     ]
+    ],
+    "numFmts": {
+     "3": [
+      "General"
+     ],
+     "4": [
+      "#,##0.00"
+     ],
+     "5": [
+      "#,##0.00"
+     ],
+     "6": [
+      "General"
+     ],
+     "7": [
+      "General"
+     ]
+    }
+   }
+  ],
+  "ledger": [
+   {
+    "name": "حركة-D-0001-<D>-2026-11",
+    "rows": [
+     [
+      "حركة صنف: سيفترياكسون 1 جم (D-0001) · الصيدلية · من <D> لـ <D> · الكميات بالـفيال"
+     ],
+     [
+      "إمتى",
+      "الحركة",
+      "المخزن",
+      "التشغيلة",
+      "الصلاحية",
+      "وارد",
+      "منصرف",
+      "الرصيد",
+      "مين",
+      "ملاحظة"
+     ],
+     [
+      null,
+      "رصيد أول الفترة",
+      null,
+      null,
+      null,
+      null,
+      null,
+      0
+     ],
+     [
+      "22/11/2026, <T>",
+      "رصيد أول المدة",
+      "الصيدلية",
+      "C1",
+      "<D>",
+      10,
+      "",
+      10,
+      "أ. نهى · حسابات المخزن",
+      "رصيد أول المدة 1"
+     ],
+     [
+      "22/11/2026, <T>",
+      "رصيد أول المدة",
+      "الصيدلية",
+      "C2",
+      "<D>",
+      8,
+      "",
+      18,
+      "أ. نهى · حسابات المخزن",
+      "رصيد أول المدة 1"
+     ],
+     [
+      "22/11/2026, <T>",
+      "رصيد أول المدة",
+      "الصيدلية",
+      "C3",
+      "<D>",
+      20,
+      "",
+      38,
+      "أ. نهى · حسابات المخزن",
+      "رصيد أول المدة 1"
+     ],
+     [
+      "22/11/2026, <T>",
+      "بيع صيدلية",
+      "الصيدلية",
+      "C1",
+      "<D>",
+      "",
+      10,
+      28,
+      "د. أمل · الصيدلية",
+      "زيارة 1"
+     ],
+     [
+      "22/11/2026, <T>",
+      "بيع صيدلية",
+      "الصيدلية",
+      "C2",
+      "<D>",
+      "",
+      5,
+      23,
+      "د. أمل · الصيدلية",
+      "زيارة 1"
+     ],
+     [
+      "22/11/2026, <T>",
+      "مرتجع بيع",
+      "الصيدلية",
+      "C2",
+      "<D>",
+      5,
+      "",
+      28,
+      "مشرف الاستقبال",
+      "مرتجع جزئي متعدد"
+     ],
+     [
+      "22/11/2026, <T>",
+      "مرتجع بيع",
+      "الصيدلية",
+      "C1",
+      "<D>",
+      2,
+      "",
+      30,
+      "مشرف الاستقبال",
+      "مرتجع جزئي متعدد"
+     ],
+     [
+      "22/11/2026, <T>",
+      "بيع صيدلية",
+      "الصيدلية",
+      "C1",
+      "<D>",
+      "",
+      2,
+      28,
+      "د. أمل · الصيدلية",
+      "زيارة 2"
+     ],
+     [
+      "22/11/2026, <T>",
+      "بيع صيدلية",
+      "الصيدلية",
+      "C2",
+      "<D>",
+      "",
+      8,
+      20,
+      "د. أمل · الصيدلية",
+      "زيارة 2"
+     ],
+     [
+      "22/11/2026, <T>",
+      "بيع صيدلية",
+      "الصيدلية",
+      "C3",
+      "<D>",
+      "",
+      10,
+      10,
+      "د. أمل · الصيدلية",
+      "زيارة 2"
+     ],
+     [
+      "22/11/2026, <T>",
+      "مرتجع بيع",
+      "الصيدلية",
+      "C3",
+      "<D>",
+      10,
+      "",
+      20,
+      "مشرف الاستقبال",
+      "مرتجع علبة"
+     ],
+     [
+      "22/11/2026, <T>",
+      "فرق جرد",
+      "الصيدلية",
+      "C3",
+      "<D>",
+      "2.5000",
+      "",
+      "22.5000",
+      "د. مدير المستشفى",
+      "جرد 1"
+     ],
+     [
+      null,
+      "رصيد آخر الفترة",
+      null,
+      null,
+      null,
+      "57.5000",
+      35,
+      "22.5000"
+     ]
+    ],
+    "numFmts": {
+     "6": [
+      "General"
+     ],
+     "7": [
+      "General"
+     ],
+     "8": [
+      "General"
+     ]
+    }
+   }
+  ],
+  "consumptionStores": [
+   {
+    "name": "استهلاك-الأقسام-<D>-202",
+    "rows": [
+     [
+      "استهلاك الأقسام · من <D> لـ <D>",
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "المخزن",
+      "القسم",
+      "المصروف للمرضى (تكلفة)",
+      "المصروف بسعر البيع",
+      "الإعدام",
+      "فروق الجرد"
+     ],
+     [
+      "الصيدلية",
+      null,
+      "323.9900",
+      1955,
+      "7.1400",
+      "9.7900"
+     ],
+     [
+      "مخزن الطوارئ",
+      "الطوارئ",
+      "59.5200",
+      81,
+      0,
+      0
+     ],
+     [
+      "الإجمالي",
+      null,
+      "383.5100",
+      2036,
+      "7.1400",
+      "9.7900"
+     ]
+    ],
+    "numFmts": {
+     "3": [
+      "#,##0.00"
+     ],
+     "4": [
+      "#,##0.00"
+     ],
+     "5": [
+      "#,##0.00"
+     ],
+     "6": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "consumptionItems": [
+   {
+    "name": "استهلاك-الأصناف-<D>-202",
+    "rows": [
+     [
+      "استهلاك الأصناف · من <D> لـ <D>",
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "الكود",
+      "الصنف",
+      "الكمية",
+      "بالوحدة الصغيرة",
+      "التكلفة",
+      "بسعر البيع"
+     ],
+     [
+      "D-0025",
+      "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "3 علبة + 2 قرص",
+      44,
+      "309.5200",
+      396
+     ],
+     [
+      "D-0001",
+      "سيفترياكسون 1 جم",
+      "1 علبة + 8 فيال",
+      18,
+      "60.6000",
+      1530
+     ],
+     [
+      "D-0006",
+      "كيتورولاك 30 مجم",
+      "1 علبة + 2 أمبول",
+      5,
+      "13.3900",
+      110
+     ],
+     [
+      null,
+      "الإجمالي",
+      null,
+      null,
+      "383.5100",
+      2036
+     ]
+    ],
+    "numFmts": {
+     "4": [
+      "General"
+     ],
+     "5": [
+      "#,##0.00"
+     ],
+     "6": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "pharmacyDays": [
+   {
+    "name": "بيع-الصيدلية-<D>-2026-1",
+    "rows": [
+     [
+      "بيع الصيدلية باليوم · من <D> لـ <D>",
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "اليوم",
+      "عدد الفواتير",
+      "البيع",
+      "المرتجع",
+      "الصافي"
+     ],
+     [
+      "<D>",
+      6,
+      4606,
+      2651,
+      1955
+     ],
+     [
+      "الإجمالي",
+      6,
+      4606,
+      2651,
+      1955
+     ]
+    ],
+    "numFmts": {
+     "2": [
+      "General"
+     ],
+     "3": [
+      "#,##0.00"
+     ],
+     "4": [
+      "#,##0.00"
+     ],
+     "5": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "pharmacyItems": [
+   {
+    "name": "بيع-الصيدلية-بالصنف-<D>",
+    "rows": [
+     [
+      "بيع الصيدلية بالصنف · من <D> لـ <D>",
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "الكود",
+      "الصنف",
+      "الكمية",
+      "المبيعات",
+      "التكلفة",
+      "الربح"
+     ],
+     [
+      "D-0001",
+      "سيفترياكسون 1 جم",
+      "1 علبة + 8 فيال",
+      1530,
+      "63.9900",
+      "1466.0100"
+     ],
+     [
+      "D-0025",
+      "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "2 علبة + 1 شريط",
+      315,
+      "166.6500",
+      "148.3500"
+     ],
+     [
+      "D-0006",
+      "كيتورولاك 30 مجم",
+      "1 علبة + 2 أمبول",
+      110,
+      "13.5000",
+      "96.5000"
+     ]
+    ],
+    "numFmts": {
+     "4": [
+      "#,##0.00"
+     ],
+     "5": [
+      "#,##0.00"
+     ],
+     "6": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "expiry": [
+   {
+    "name": "الصلاحية-<D>",
+    "rows": [
+     [
+      "الأصناف المنتهية واللي هتنتهي خلال 90 يوم · <D>",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "المخزن",
+      "الكود",
+      "الصنف",
+      "التشغيلة",
+      "الصلاحية",
+      "فاضل (يوم)",
+      "الكمية",
+      "القيمة"
+     ],
+     [
+      "الصيدلية",
+      "S-0004",
+      "سرنجة 5 مل",
+      "S1",
+      "<D>",
+      -10,
+      "1 علبة + 2 قطعة + 0.5 قطعة",
+      "56.9400"
+     ],
+     [
+      "الصيدلية",
+      "S-0001",
+      "كانيولا 20G",
+      "N1",
+      "<D>",
+      30,
+      "49 قطعة",
+      "85.7500"
+     ],
+     [
+      "الصيدلية",
+      "S-0001",
+      "كانيولا 20G",
+      "N2",
+      "<D>",
+      60,
+      "22 قطعة + 0.5 قطعة",
+      "42.7500"
+     ],
+     [
+      "الإجمالي",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "185.4400"
+     ]
+    ],
+    "numFmts": {
+     "6": [
+      "General"
+     ],
+     "8": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "stagnant": [
+   {
+    "name": "الراكد-<D>",
+    "rows": [
+     [
+      "أصناف ليها رصيد ومفيش منها صرف من 90 يوم · <D>",
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "المخزن",
+      "الكود",
+      "الصنف",
+      "الرصيد",
+      "القيمة",
+      "آخر صرف"
+     ],
+     [
+      "الصيدلية",
+      "S-0004",
+      "سرنجة 5 مل",
+      "1 علبة + 2 قطعة + 0.5 قطعة",
+      "56.9400",
+      "مفيش صرف خالص"
+     ],
+     [
+      "الصيدلية",
+      "S-0007",
+      "جوانتي فحص",
+      "1 علبة + 3 جوز",
+      "35.3300",
+      "مفيش صرف خالص"
+     ],
+     [
+      "الإجمالي",
+      null,
+      null,
+      null,
+      "92.2700"
+     ]
+    ],
+    "numFmts": {
+     "5": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "treasury": [
+   {
+    "name": "تقرير الخزينة",
+    "rows": [
+     [
+      "تقرير الخزينة · <D>",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "القسم",
+      "إيصال",
+      "الإيصال اليدوي",
+      "الوقت",
+      "المريض",
+      "الخدمة",
+      "النوع",
+      "نقدي",
+      "فيزا",
+      "آجل",
+      "الصافي",
+      "الموظف"
+     ],
+     [
+      "الصيدلية",
+      1,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 1 علي",
+      "سيفترياكسون 1 جم (فيال)",
+      "سداد",
+      1275,
+      0,
+      0,
+      1275,
+      "د. أمل · الصيدلية"
+     ],
+     [
+      "الصيدلية",
+      2,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 1 علي",
+      "مرتجع: سيفترياكسون 1 جم (فيال)",
+      "إلغاء",
+      -595,
+      0,
+      0,
+      -595,
+      "مشرف الاستقبال"
+     ],
+     [
+      "الصيدلية",
+      3,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 2 علي",
+      "سيفترياكسون 1 جم (علبة)",
+      "سداد",
+      1700,
+      0,
+      0,
+      1700,
+      "د. أمل · الصيدلية"
+     ],
+     [
+      "الصيدلية",
+      4,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 2 علي",
+      "مرتجع: سيفترياكسون 1 جم (علبة)",
+      "إلغاء",
+      -850,
+      0,
+      0,
+      -850,
+      "مشرف الاستقبال"
+     ],
+     [
+      "الصيدلية",
+      5,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 3 علي",
+      "أموكسيسيلين/كلافيولانيك 1 جم أقراص (علبة)",
+      "سداد",
+      252,
+      0,
+      0,
+      252,
+      "د. أمل · الصيدلية"
+     ],
+     [
+      "الصيدلية",
+      6,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 3 علي",
+      "أموكسيسيلين/كلافيولانيك 1 جم أقراص (شريط)",
+      "سداد",
+      189,
+      0,
+      0,
+      189,
+      "د. أمل · الصيدلية"
+     ],
+     [
+      "الصيدلية",
+      7,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 3 علي",
+      "مرتجع: أموكسيسيلين/كلافيولانيك 1 جم أقراص (شريط)",
+      "إلغاء",
+      -126,
+      0,
+      0,
+      -126,
+      "مشرف الاستقبال"
+     ],
+     [
+      "الصيدلية",
+      8,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 5 علي",
+      "كانيولا 20G (قطعة)",
+      "سداد",
+      1080,
+      0,
+      0,
+      1080,
+      "د. أمل · الصيدلية"
+     ],
+     [
+      "الصيدلية",
+      9,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 5 علي",
+      "كانيولا 20G (قطعة)",
+      "إلغاء",
+      -1080,
+      0,
+      0,
+      -1080,
+      "د. مدير المستشفى"
+     ],
+     [
+      "الصيدلية",
+      10,
+      "",
+      "22/11/2026, <T>",
+      "مريض مخزون رقم 6 علي",
+      "كيتورولاك 30 مجم (أمبول)",
+      "سداد",
+      110,
+      0,
+      0,
+      110,
+      "د. مدير المستشفى"
+     ],
+     [
+      "إجمالي الصيدلية",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      1955,
+      0,
+      0,
+      1955
+     ],
+     [
+      "الإجمالي الكلي",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      1955,
+      0,
+      0,
+      1955
+     ]
+    ],
+    "numFmts": {
+     "2": [
+      "General"
+     ],
+     "8": [
+      "#,##0.00"
+     ],
+     "9": [
+      "#,##0.00"
+     ],
+     "10": [
+      "#,##0.00"
+     ],
+     "11": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "expenses": [
+   {
+    "name": "المصروفات",
+    "rows": [
+     [
+      "رقم",
+      "التاريخ",
+      "البند",
+      "المبلغ",
+      "الدفع",
+      "لمين",
+      "ملاحظة",
+      "الحالة",
+      "سجّله"
+     ],
+     [
+      2,
+      "<D>",
+      "كهرباء ومياه وغاز",
+      "99.9500",
+      "بنك",
+      "مصروف C2",
+      "",
+      "مستني موافقة",
+      "أ. هشام · الحسابات العامة"
+     ],
+     [
+      1,
+      "<D>",
+      "كهرباء ومياه وغاز",
+      "750.2500",
+      "نقدي",
+      "مصروف C",
+      "",
+      "مستني موافقة",
+      "أ. هشام · الحسابات العامة"
+     ]
+    ],
+    "numFmts": {
+     "1": [
+      "General"
+     ],
+     "4": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "servicesTemplate": [
+   {
+    "name": "الخدمات",
+    "rows": [
+     [
+      "الكود",
+      "اسم الخدمة",
+      "القسم",
+      "السعر",
+      "الدفع",
+      "ليها دكتور",
+      "زرار سريع",
+      "فعالة"
+     ],
+     [
+      "CL-001",
+      "كشف استشاري",
+      "العيادات",
+      400,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "CL-002",
+      "كشف أخصائي",
+      "العيادات",
+      250,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "CL-003",
+      "إعادة كشف",
+      "العيادات",
+      100,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "CL-010",
+      "سونار بطن وحوض",
+      "العيادات",
+      350,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "CL-011",
+      "رسم قلب",
+      "العيادات",
+      150,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "CL-012",
+      "غيار جرح",
+      "العيادات",
+      80,
+      "بعد",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "ER-001",
+      "كشف طوارئ",
+      "الطوارئ",
+      200,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "ER-002",
+      "جلسة نيبولايزر",
+      "الطوارئ",
+      75,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "ER-003",
+      "خياطة جرح بسيط",
+      "الطوارئ",
+      250,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "ER-004",
+      "تركيب كانيولا ومحاليل",
+      "الطوارئ",
+      150,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "ER-005",
+      "حقنة عضل/وريد",
+      "الطوارئ",
+      40,
+      "بعد",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "LAB-001",
+      "صورة دم كاملة CBC",
+      "المعمل",
+      120,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "LAB-002",
+      "سكر صائم",
+      "المعمل",
+      40,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "LAB-003",
+      "وظائف كبد",
+      "المعمل",
+      220,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "LAB-004",
+      "وظائف كلى",
+      "المعمل",
+      200,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "LAB-005",
+      "صورة دهون كاملة",
+      "المعمل",
+      260,
+      "قبل",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "LAB-006",
+      "تحليل بول كامل",
+      "المعمل",
+      60,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "LAB-007",
+      "هرمون الغدة TSH",
+      "المعمل",
+      180,
+      "قبل",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "LAB-008",
+      "سكر تراكمي HbA1c",
+      "المعمل",
+      190,
+      "قبل",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "LAB-009",
+      "تحليل براز",
+      "المعمل",
+      60,
+      "قبل",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "LAB-010",
+      "سي آر بي CRP",
+      "المعمل",
+      120,
+      "قبل",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "LAB-011",
+      "فيتامين د",
+      "المعمل",
+      450,
+      "قبل",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "OR-001",
+      "عملية زايدة دودية",
+      "العمليات",
+      7000,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "OR-002",
+      "أتعاب تخدير",
+      "العمليات",
+      1500,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "OR-003",
+      "غرفة عمليات (ساعة)",
+      "العمليات",
+      1200,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "OR-004",
+      "باكدج ولادة قيصرية شامل ليلتين",
+      "العمليات",
+      16000,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "OR-005",
+      "منظار مرارة",
+      "العمليات",
+      12000,
+      "بعد",
+      "نعم",
+      "لا",
+      "نعم"
+     ],
+     [
+      "OR-006",
+      "أتعاب جراح",
+      "العمليات",
+      3000,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "OR-007",
+      "أتعاب مساعد جراح",
+      "العمليات",
+      800,
+      "بعد",
+      "نعم",
+      "لا",
+      "نعم"
+     ],
+     [
+      "RAD-001",
+      "أشعة عادية صدر",
+      "الأشعة",
+      150,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "RAD-002",
+      "أشعة عادية عظام",
+      "الأشعة",
+      170,
+      "قبل",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "RAD-003",
+      "سونار بطن وحوض",
+      "الأشعة",
+      300,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "RAD-004",
+      "أشعة مقطعية بدون صبغة",
+      "الأشعة",
+      900,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "RAD-005",
+      "رنين مغناطيسي",
+      "الأشعة",
+      1600,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "RAD-006",
+      "ماموجرام",
+      "الأشعة",
+      700,
+      "قبل",
+      "نعم",
+      "لا",
+      "نعم"
+     ],
+     [
+      "RAD-007",
+      "سونار غدة درقية",
+      "الأشعة",
+      350,
+      "قبل",
+      "نعم",
+      "لا",
+      "نعم"
+     ],
+     [
+      "RAD-008",
+      "سونار حمل",
+      "الأشعة",
+      300,
+      "قبل",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "RAD-009",
+      "أشعة مقطعية على المخ",
+      "الأشعة",
+      1000,
+      "قبل",
+      "نعم",
+      "لا",
+      "نعم"
+     ],
+     [
+      "IP-001",
+      "زيارة طبيب",
+      "خدمات الإقامة",
+      300,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "IP-007",
+      "زيارة استشاري",
+      "خدمات الإقامة",
+      500,
+      "بعد",
+      "نعم",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "IP-002",
+      "أكسجين (ساعة)",
+      "خدمات الإقامة",
+      50,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "IP-003",
+      "جلسة نيبولايزر (داخلي)",
+      "خدمات الإقامة",
+      90,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "IP-004",
+      "رسم قلب (داخلي)",
+      "خدمات الإقامة",
+      180,
+      "بعد",
+      "لا",
+      "لا",
+      "نعم"
+     ],
+     [
+      "IP-005",
+      "غيار جرح (داخلي)",
+      "خدمات الإقامة",
+      120,
+      "بعد",
+      "لا",
+      "نعم",
+      "نعم"
+     ],
+     [
+      "IP-006",
+      "فوتوثيرابي (يوم)",
+      "خدمات الإقامة",
+      400,
+      "بعد",
+      "لا",
+      "لا",
+      "نعم"
+     ]
+    ],
+    "numFmts": {
+     "4": [
+      "#,##0.00"
+     ]
+    }
+   },
+   {
+    "name": "طريقة الاستخدام",
+    "rows": [
+     [
+      "طريقة تعديل الأسعار والخدمات من إكسل:"
+     ],
+     [
+      "1) عدّل في شيت «الخدمات» بس، وسيب صف العناوين زي ما هو."
+     ],
+     [
+      "2) الخدمة الموجودة بتتعرف بالكود. غيّر السعر أو الاسم أو أي خانة والبرنامج هيعرف التغيير."
+     ],
+     [
+      "3) لخدمة جديدة: اكتب الاسم والقسم والسعر، وسيب الكود فاضي والبرنامج يدّيها كود لوحده."
+     ],
+     [
+      "4) لوقف خدمة: خلّي «فعالة» = لا. (مفيش حذف عشان الإيصالات القديمة)"
+     ],
+     [
+      "5) ارفع الملف من «استيراد من إكسل»، وهتشوف كل التغييرات قبل ما تتنفذ."
+     ],
+     [
+      "السعر الجديد بيسري من لحظة التنفيذ، والإيصالات القديمة مش بتتغير."
+     ]
+    ],
+    "numFmts": {}
+   }
+  ],
+  "itemsTemplate": [
+   {
+    "name": "الأصناف",
+    "rows": [
+     [
+      "الكود",
+      "اسم الصنف",
+      "النوع",
+      "الوحدة",
+      "السعر",
+      "الباركود",
+      "فعال"
+     ],
+     [
+      "D-0024",
+      "ألبومين 20% 50 مل",
+      "دواء",
+      "زجاجة",
+      950,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0025",
+      "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "دواء",
+      "قرص",
+      9,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0003",
+      "أموكسيسيلين/كلافيولانيك 1.2 جم",
+      "دواء",
+      "فيال",
+      120,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0008",
+      "أوميبرازول 40 مجم",
+      "دواء",
+      "فيال",
+      75,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0010",
+      "أوندانسيترون 8 مجم",
+      "دواء",
+      "أمبول",
+      28,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0017",
+      "إنسولين سريع",
+      "دواء",
+      "قلم",
+      180,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0015",
+      "إينوكسابارين 40 مجم",
+      "دواء",
+      "سرنجة",
+      110,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0005",
+      "باراسيتامول 1 جم محلول",
+      "دواء",
+      "زجاجة",
+      70,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0018",
+      "ترامادول 100 مجم",
+      "دواء",
+      "أمبول",
+      18,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0012",
+      "ديكساميثازون 8 مجم",
+      "دواء",
+      "أمبول",
+      15,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0007",
+      "ديكلوفيناك 75 مجم",
+      "دواء",
+      "أمبول",
+      12,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0009",
+      "رانيتيدين 50 مجم",
+      "دواء",
+      "أمبول",
+      9,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0019",
+      "سالبيوتامول للنيبولايزر",
+      "دواء",
+      "أمبول",
+      6,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0001",
+      "سيفترياكسون 1 جم",
+      "دواء",
+      "فيال",
+      85,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0002",
+      "سيفوتاكسيم 1 جم",
+      "دواء",
+      "فيال",
+      60,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0014",
+      "فوروسيميد 20 مجم",
+      "دواء",
+      "أمبول",
+      8,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0006",
+      "كيتورولاك 30 مجم",
+      "دواء",
+      "أمبول",
+      22,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0021",
+      "محلول جلوكوز 5% 500 مل",
+      "دواء",
+      "كيس",
+      24,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0023",
+      "محلول جلوكوز ملح 500 مل",
+      "دواء",
+      "كيس",
+      25,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0022",
+      "محلول رينجر 500 مل",
+      "دواء",
+      "كيس",
+      26,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0020",
+      "محلول ملح 0.9% 500 مل",
+      "دواء",
+      "كيس",
+      22,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0004",
+      "ميترونيدازول 500 مجم محلول",
+      "دواء",
+      "زجاجة",
+      35,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0011",
+      "ميتوكلوبراميد 10 مجم",
+      "دواء",
+      "أمبول",
+      7,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0016",
+      "هيبارين 5000 وحدة",
+      "دواء",
+      "فيال",
+      55,
+      "",
+      "نعم"
+     ],
+     [
+      "D-0013",
+      "هيدروكورتيزون 100 مجم",
+      "دواء",
+      "فيال",
+      45,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0013",
+      "أنبوبة رايل",
+      "مستلزم",
+      "قطعة",
+      20,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0018",
+      "إلكترود رسم قلب",
+      "مستلزم",
+      "قطعة",
+      4,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0010",
+      "بلاستر",
+      "مستلزم",
+      "بكرة",
+      14,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0003",
+      "جهاز محلول",
+      "مستلزم",
+      "قطعة",
+      12,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0007",
+      "جوانتي فحص",
+      "مستلزم",
+      "جوز",
+      2,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0006",
+      "جوانتي معقم",
+      "مستلزم",
+      "جوز",
+      9,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0017",
+      "خيط جراحي فيكريل 2/0",
+      "مستلزم",
+      "قطعة",
+      95,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0016",
+      "رباط ضاغط",
+      "مستلزم",
+      "لفة",
+      25,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0005",
+      "سرنجة 10 مل",
+      "مستلزم",
+      "قطعة",
+      4,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0004",
+      "سرنجة 5 مل",
+      "مستلزم",
+      "قطعة",
+      3,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0019",
+      "شاش رول طبي",
+      "مستلزم",
+      "سم",
+      "0.5000",
+      "",
+      "نعم"
+     ],
+     [
+      "S-0008",
+      "شاش معقم",
+      "مستلزم",
+      "باكو",
+      8,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0011",
+      "قسطرة بولية فولي",
+      "مستلزم",
+      "قطعة",
+      35,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0009",
+      "قطن طبي 100 جم",
+      "مستلزم",
+      "لفة",
+      15,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0001",
+      "كانيولا 20G",
+      "مستلزم",
+      "قطعة",
+      18,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0002",
+      "كانيولا 22G",
+      "مستلزم",
+      "قطعة",
+      18,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0012",
+      "كيس بول",
+      "مستلزم",
+      "قطعة",
+      15,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0014",
+      "ماسك أكسجين",
+      "مستلزم",
+      "قطعة",
+      30,
+      "",
+      "نعم"
+     ],
+     [
+      "S-0015",
+      "ماسك نيبولايزر",
+      "مستلزم",
+      "قطعة",
+      35,
+      "",
+      "نعم"
+     ]
+    ],
+    "numFmts": {
+     "5": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ],
+  "payerStatement": [
+   {
+    "name": "كشف الحساب",
+    "rows": [
+     [
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>",
+      "كشف حساب شركة مصر للتأمين · من <D> لـ <D>"
+     ],
+     [
+      "التاريخ",
+      "المريض",
+      "رقم الملف",
+      "رقم الكارنيه",
+      "البيان",
+      "رقم الموافقة",
+      "القيمة الكلية",
+      "نصيب الجهة"
+     ],
+     [
+      "",
+      "",
+      "",
+      "",
+      "الإجمالي",
+      "",
+      "",
+      0
+     ]
+    ],
+    "numFmts": {
+     "8": [
+      "#,##0.00"
+     ]
+    }
+   }
+  ]
+ },
+ "valuation": {
+  "byStore": {
+   "3": {
+    "posQtyU4": 2765000,
+    "posValueU8": 37592575000,
+    "negQtyU4": 0,
+    "noCostPosQtyU4": 0
+   },
+   "12": {
+    "posQtyU4": 130000,
+    "posValueU8": 6189820000,
+    "negQtyU4": 0,
+    "noCostPosQtyU4": 0
+   }
+  },
+  "total": {
+   "posQtyU4": 2895000,
+   "posValueU8": 43782395000,
+   "negQtyU4": 0,
+   "noCostPosQtyU4": 0
+  }
+ },
+ "db": {
+  "StockBatches": {
+   "count": 16,
+   "sums": {
+    "Qty": 2895000,
+    "Cost": 461656
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchNo": "C1",
+     "Qty": "0.0000",
+     "Cost": "3.3000"
+    },
+    {
+     "Id": 2,
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchNo": "C2",
+     "Qty": "0.0000",
+     "Cost": "3.4500"
+    },
+    {
+     "Id": 3,
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchNo": "C3",
+     "Qty": "22.5000",
+     "Cost": "3.5550"
+    },
+    {
+     "Id": 4,
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchNo": "A1",
+     "Qty": "0.0000",
+     "Cost": "7.1429"
+    },
+    {
+     "Id": 5,
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchNo": "A2",
+     "Qty": "10.5000",
+     "Cost": "4.7614"
+    },
+    {
+     "Id": 6,
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchNo": "K1",
+     "Qty": "0.0000",
+     "Cost": "2.6633"
+    },
+    {
+     "Id": 7,
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchNo": "N1",
+     "Qty": "49.0000",
+     "Cost": "1.7500"
+    },
+    {
+     "Id": 8,
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchNo": "N2",
+     "Qty": "22.5000",
+     "Cost": "1.9000"
+    },
+    {
+     "Id": 9,
+     "ItemId": 31,
+     "StoreId": 3,
+     "BatchNo": "G1",
+     "Qty": "49.0000",
+     "Cost": "0.6666"
+    },
+    {
+     "Id": 10,
+     "ItemId": 28,
+     "StoreId": 3,
+     "BatchNo": "S1",
+     "Qty": "102.5000",
+     "Cost": "0.5555"
+    },
+    {
+     "Id": 11,
+     "ItemId": 32,
+     "StoreId": 3,
+     "BatchNo": "Z1",
+     "Qty": "12.5000",
+     "Cost": "1.1500"
+    },
+    {
+     "Id": 12,
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchNo": null,
+     "Qty": "0.0000",
+     "Cost": null
+    },
+    {
+     "Id": 13,
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchNo": "K2",
+     "Qty": "4.0000",
+     "Cost": "2.7000"
+    },
+    {
+     "Id": 14,
+     "ItemId": 43,
+     "StoreId": 12,
+     "BatchNo": "A1",
+     "Qty": "0.0000",
+     "Cost": "7.1429"
+    },
+    {
+     "Id": 15,
+     "ItemId": 43,
+     "StoreId": 12,
+     "BatchNo": "A2",
+     "Qty": "13.0000",
+     "Cost": "4.7614"
+    },
+    {
+     "Id": 16,
+     "ItemId": 31,
+     "StoreId": 3,
+     "BatchNo": "G-NEW",
+     "Qty": "4.0000",
+     "Cost": "0.6666"
+    }
+   ]
+  },
+  "StockMoves": {
+   "count": 51,
+   "sums": {
+    "Qty": 2895000,
+    "Cost": 1680989
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Kind": "opening",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 1,
+     "Qty": "10.0000",
+     "Cost": "3.3000",
+     "RefType": "purchase",
+     "RefId": 1
+    },
+    {
+     "Id": 2,
+     "Kind": "opening",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 2,
+     "Qty": "8.0000",
+     "Cost": "3.4500",
+     "RefType": "purchase",
+     "RefId": 1
+    },
+    {
+     "Id": 3,
+     "Kind": "opening",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 3,
+     "Qty": "20.0000",
+     "Cost": "3.5550",
+     "RefType": "purchase",
+     "RefId": 1
+    },
+    {
+     "Id": 4,
+     "Kind": "opening",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 4,
+     "Qty": "42.0000",
+     "Cost": "7.1429",
+     "RefType": "purchase",
+     "RefId": 2
+    },
+    {
+     "Id": 5,
+     "Kind": "opening",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 5,
+     "Qty": "28.0000",
+     "Cost": "4.7614",
+     "RefType": "purchase",
+     "RefId": 2
+    },
+    {
+     "Id": 6,
+     "Kind": "opening",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 6,
+     "Qty": "3.0000",
+     "Cost": "2.6633",
+     "RefType": "purchase",
+     "RefId": 3
+    },
+    {
+     "Id": 7,
+     "Kind": "opening",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 7,
+     "Qty": "50.0000",
+     "Cost": "1.7500",
+     "RefType": "purchase",
+     "RefId": 4
+    },
+    {
+     "Id": 8,
+     "Kind": "opening",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "20.0000",
+     "Cost": "1.9000",
+     "RefType": "purchase",
+     "RefId": 4
+    },
+    {
+     "Id": 9,
+     "Kind": "opening",
+     "ItemId": 31,
+     "StoreId": 3,
+     "BatchId": 9,
+     "Qty": "50.0000",
+     "Cost": "0.6666",
+     "RefType": "purchase",
+     "RefId": 5
+    },
+    {
+     "Id": 10,
+     "Kind": "opening",
+     "ItemId": 28,
+     "StoreId": 3,
+     "BatchId": 10,
+     "Qty": "100.0000",
+     "Cost": "0.5555",
+     "RefType": "purchase",
+     "RefId": 5
+    },
+    {
+     "Id": 11,
+     "Kind": "opening",
+     "ItemId": 32,
+     "StoreId": 3,
+     "BatchId": 11,
+     "Qty": "12.5000",
+     "Cost": "1.1500",
+     "RefType": "purchase",
+     "RefId": 5
+    },
+    {
+     "Id": 12,
+     "Kind": "sale",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 1,
+     "Qty": "-10.0000",
+     "Cost": "3.3000",
+     "RefType": "visititem",
+     "RefId": 1
+    },
+    {
+     "Id": 13,
+     "Kind": "sale",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 2,
+     "Qty": "-5.0000",
+     "Cost": "3.4500",
+     "RefType": "visititem",
+     "RefId": 1
+    },
+    {
+     "Id": 14,
+     "Kind": "sale_back",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 2,
+     "Qty": "5.0000",
+     "Cost": "3.4500",
+     "RefType": "visititem",
+     "RefId": 1
+    },
+    {
+     "Id": 15,
+     "Kind": "sale_back",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 1,
+     "Qty": "2.0000",
+     "Cost": "3.3000",
+     "RefType": "visititem",
+     "RefId": 1
+    },
+    {
+     "Id": 16,
+     "Kind": "sale",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 1,
+     "Qty": "-2.0000",
+     "Cost": "3.3000",
+     "RefType": "visititem",
+     "RefId": 2
+    },
+    {
+     "Id": 17,
+     "Kind": "sale",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 2,
+     "Qty": "-8.0000",
+     "Cost": "3.4500",
+     "RefType": "visititem",
+     "RefId": 2
+    },
+    {
+     "Id": 18,
+     "Kind": "sale",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 3,
+     "Qty": "-10.0000",
+     "Cost": "3.5550",
+     "RefType": "visititem",
+     "RefId": 2
+    },
+    {
+     "Id": 19,
+     "Kind": "sale_back",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 3,
+     "Qty": "10.0000",
+     "Cost": "3.5550",
+     "RefType": "visititem",
+     "RefId": 2
+    },
+    {
+     "Id": 20,
+     "Kind": "sale",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 4,
+     "Qty": "-28.0000",
+     "Cost": "7.1429",
+     "RefType": "visititem",
+     "RefId": 3
+    },
+    {
+     "Id": 21,
+     "Kind": "sale",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 4,
+     "Qty": "-14.0000",
+     "Cost": "7.1429",
+     "RefType": "visititem",
+     "RefId": 4
+    },
+    {
+     "Id": 22,
+     "Kind": "sale",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 5,
+     "Qty": "-7.0000",
+     "Cost": "4.7614",
+     "RefType": "visititem",
+     "RefId": 4
+    },
+    {
+     "Id": 23,
+     "Kind": "sale_back",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 5,
+     "Qty": "7.0000",
+     "Cost": "4.7614",
+     "RefType": "visititem",
+     "RefId": 4
+    },
+    {
+     "Id": 24,
+     "Kind": "sale_back",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 4,
+     "Qty": "7.0000",
+     "Cost": "7.1429",
+     "RefType": "visititem",
+     "RefId": 4
+    },
+    {
+     "Id": 25,
+     "Kind": "sale",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 7,
+     "Qty": "-50.0000",
+     "Cost": "1.7500",
+     "RefType": "visititem",
+     "RefId": 5
+    },
+    {
+     "Id": 26,
+     "Kind": "sale",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "-10.0000",
+     "Cost": "1.9000",
+     "RefType": "visititem",
+     "RefId": 5
+    },
+    {
+     "Id": 27,
+     "Kind": "sale_back",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "5.0000",
+     "Cost": "1.9000",
+     "RefType": "visititem",
+     "RefId": 5
+    },
+    {
+     "Id": 28,
+     "Kind": "sale_back",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "5.0000",
+     "Cost": "1.9000",
+     "RefType": "visititem",
+     "RefId": 5
+    },
+    {
+     "Id": 29,
+     "Kind": "sale_back",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 7,
+     "Qty": "50.0000",
+     "Cost": "1.7500",
+     "RefType": "visititem",
+     "RefId": 5
+    },
+    {
+     "Id": 30,
+     "Kind": "sale",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 7,
+     "Qty": "-50.0000",
+     "Cost": "1.7500",
+     "RefType": "visititem",
+     "RefId": 6
+    },
+    {
+     "Id": 31,
+     "Kind": "sale",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "-10.0000",
+     "Cost": "1.9000",
+     "RefType": "visititem",
+     "RefId": 6
+    },
+    {
+     "Id": 32,
+     "Kind": "sale_back",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "10.0000",
+     "Cost": "1.9000",
+     "RefType": "visititem",
+     "RefId": 6
+    },
+    {
+     "Id": 33,
+     "Kind": "sale_back",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 7,
+     "Qty": "50.0000",
+     "Cost": "1.7500",
+     "RefType": "visititem",
+     "RefId": 6
+    },
+    {
+     "Id": 34,
+     "Kind": "sale",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 6,
+     "Qty": "-3.0000",
+     "Cost": "2.6633",
+     "RefType": "visititem",
+     "RefId": 7
+    },
+    {
+     "Id": 35,
+     "Kind": "sale",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 12,
+     "Qty": "-2.0000",
+     "Cost": null,
+     "RefType": "visititem",
+     "RefId": 7
+    },
+    {
+     "Id": 36,
+     "Kind": "receive",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 12,
+     "Qty": "2.0000",
+     "Cost": "2.7000",
+     "RefType": "purchase",
+     "RefId": 6
+    },
+    {
+     "Id": 37,
+     "Kind": "receive",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 13,
+     "Qty": "4.0000",
+     "Cost": "2.7000",
+     "RefType": "purchase",
+     "RefId": 6
+    },
+    {
+     "Id": 38,
+     "Kind": "transfer_out",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 4,
+     "Qty": "-7.0000",
+     "Cost": "7.1429",
+     "RefType": "trline",
+     "RefId": 1
+    },
+    {
+     "Id": 39,
+     "Kind": "transfer_out",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 5,
+     "Qty": "-15.0000",
+     "Cost": "4.7614",
+     "RefType": "trline",
+     "RefId": 1
+    },
+    {
+     "Id": 40,
+     "Kind": "transfer_in",
+     "ItemId": 43,
+     "StoreId": 12,
+     "BatchId": 14,
+     "Qty": "7.0000",
+     "Cost": "7.1429",
+     "RefType": "trin",
+     "RefId": 1
+    },
+    {
+     "Id": 41,
+     "Kind": "transfer_in",
+     "ItemId": 43,
+     "StoreId": 12,
+     "BatchId": 15,
+     "Qty": "15.0000",
+     "Cost": "4.7614",
+     "RefType": "trin",
+     "RefId": 1
+    },
+    {
+     "Id": 42,
+     "Kind": "waste",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 5,
+     "Qty": "-1.5000",
+     "Cost": "4.7614",
+     "RefType": "waste",
+     "RefId": 1
+    },
+    {
+     "Id": 43,
+     "Kind": "count",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 3,
+     "Qty": "2.5000",
+     "Cost": "3.5550",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 44,
+     "Kind": "count",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 7,
+     "Qty": "-1.0000",
+     "Cost": "1.7500",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 45,
+     "Kind": "count",
+     "ItemId": 25,
+     "StoreId": 3,
+     "BatchId": 8,
+     "Qty": "2.5000",
+     "Cost": "1.9000",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 46,
+     "Kind": "count",
+     "ItemId": 28,
+     "StoreId": 3,
+     "BatchId": 10,
+     "Qty": "2.5000",
+     "Cost": "0.5555",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 47,
+     "Kind": "count",
+     "ItemId": 31,
+     "StoreId": 3,
+     "BatchId": 9,
+     "Qty": "-1.0000",
+     "Cost": "0.6666",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 48,
+     "Kind": "count",
+     "ItemId": 43,
+     "StoreId": 3,
+     "BatchId": 5,
+     "Qty": "-1.0000",
+     "Cost": "4.7614",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 49,
+     "Kind": "count",
+     "ItemId": 31,
+     "StoreId": 3,
+     "BatchId": 16,
+     "Qty": "4.0000",
+     "Cost": "0.6666",
+     "RefType": "count",
+     "RefId": 1
+    },
+    {
+     "Id": 50,
+     "Kind": "visit",
+     "ItemId": 43,
+     "StoreId": 12,
+     "BatchId": 14,
+     "Qty": "-7.0000",
+     "Cost": "7.1429",
+     "RefType": "visititem",
+     "RefId": 8
+    },
+    {
+     "Id": 51,
+     "Kind": "visit",
+     "ItemId": 43,
+     "StoreId": 12,
+     "BatchId": 15,
+     "Qty": "-2.0000",
+     "Cost": "4.7614",
+     "RefType": "visititem",
+     "RefId": 8
+    }
+   ]
+  },
+  "StockItems": {
+   "count": 44,
+   "sums": {
+    "Price": 23785000,
+    "MinQty": 8250000,
+    "LastCost": 152885
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Name": "سيفترياكسون 1 جم",
+     "LastCost": "3.5550"
+    },
+    {
+     "Id": 2,
+     "Name": "سيفوتاكسيم 1 جم",
+     "LastCost": null
+    },
+    {
+     "Id": 3,
+     "Name": "أموكسيسيلين/كلافيولانيك 1.2 جم",
+     "LastCost": null
+    },
+    {
+     "Id": 4,
+     "Name": "ميترونيدازول 500 مجم محلول",
+     "LastCost": null
+    },
+    {
+     "Id": 5,
+     "Name": "باراسيتامول 1 جم محلول",
+     "LastCost": null
+    },
+    {
+     "Id": 6,
+     "Name": "كيتورولاك 30 مجم",
+     "LastCost": "2.7000"
+    },
+    {
+     "Id": 7,
+     "Name": "ديكلوفيناك 75 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 8,
+     "Name": "أوميبرازول 40 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 9,
+     "Name": "رانيتيدين 50 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 10,
+     "Name": "أوندانسيترون 8 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 11,
+     "Name": "ميتوكلوبراميد 10 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 12,
+     "Name": "ديكساميثازون 8 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 13,
+     "Name": "هيدروكورتيزون 100 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 14,
+     "Name": "فوروسيميد 20 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 15,
+     "Name": "إينوكسابارين 40 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 16,
+     "Name": "هيبارين 5000 وحدة",
+     "LastCost": null
+    },
+    {
+     "Id": 17,
+     "Name": "إنسولين سريع",
+     "LastCost": null
+    },
+    {
+     "Id": 18,
+     "Name": "ترامادول 100 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 19,
+     "Name": "سالبيوتامول للنيبولايزر",
+     "LastCost": null
+    },
+    {
+     "Id": 20,
+     "Name": "محلول ملح 0.9% 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 21,
+     "Name": "محلول جلوكوز 5% 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 22,
+     "Name": "محلول رينجر 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 23,
+     "Name": "محلول جلوكوز ملح 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 24,
+     "Name": "ألبومين 20% 50 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 25,
+     "Name": "كانيولا 20G",
+     "LastCost": "1.9000"
+    },
+    {
+     "Id": 26,
+     "Name": "كانيولا 22G",
+     "LastCost": null
+    },
+    {
+     "Id": 27,
+     "Name": "جهاز محلول",
+     "LastCost": null
+    },
+    {
+     "Id": 28,
+     "Name": "سرنجة 5 مل",
+     "LastCost": "0.5555"
+    },
+    {
+     "Id": 29,
+     "Name": "سرنجة 10 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 30,
+     "Name": "جوانتي معقم",
+     "LastCost": null
+    },
+    {
+     "Id": 31,
+     "Name": "جوانتي فحص",
+     "LastCost": "0.6666"
+    },
+    {
+     "Id": 32,
+     "Name": "شاش معقم",
+     "LastCost": "1.1500"
+    },
+    {
+     "Id": 33,
+     "Name": "قطن طبي 100 جم",
+     "LastCost": null
+    },
+    {
+     "Id": 34,
+     "Name": "بلاستر",
+     "LastCost": null
+    },
+    {
+     "Id": 35,
+     "Name": "قسطرة بولية فولي",
+     "LastCost": null
+    },
+    {
+     "Id": 36,
+     "Name": "كيس بول",
+     "LastCost": null
+    },
+    {
+     "Id": 37,
+     "Name": "أنبوبة رايل",
+     "LastCost": null
+    },
+    {
+     "Id": 38,
+     "Name": "ماسك أكسجين",
+     "LastCost": null
+    },
+    {
+     "Id": 39,
+     "Name": "ماسك نيبولايزر",
+     "LastCost": null
+    },
+    {
+     "Id": 40,
+     "Name": "رباط ضاغط",
+     "LastCost": null
+    },
+    {
+     "Id": 41,
+     "Name": "خيط جراحي فيكريل 2/0",
+     "LastCost": null
+    },
+    {
+     "Id": 42,
+     "Name": "إلكترود رسم قلب",
+     "LastCost": null
+    },
+    {
+     "Id": 43,
+     "Name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+     "LastCost": "4.7614"
+    },
+    {
+     "Id": 44,
+     "Name": "شاش رول طبي",
+     "LastCost": null
+    }
+   ]
+  },
+  "StockWaste": {
+   "count": 1,
+   "sums": {
+    "Qty": 15000,
+    "Cost": 47614
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "StoreId": 3,
+     "ItemId": 43,
+     "BatchId": 5,
+     "Qty": "1.5000",
+     "Cost": "4.7614"
+    }
+   ]
+  },
+  "StockCounts": {
+   "count": 1,
+   "sums": {
+    "DiffValue": 105100
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "StoreId": 3,
+     "Status": "approved",
+     "DiffValue": "10.5100"
+    }
+   ]
+  },
+  "StockCountLines": {
+   "count": 9,
+   "sums": {
+    "SystemQty": 2680000,
+    "CountedQty": 2765000,
+    "Cost": 177051
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "CountId": 1,
+     "ItemId": 1,
+     "BatchId": 3,
+     "SystemQty": "20.0000",
+     "CountedQty": "22.5000",
+     "Cost": "3.5550"
+    },
+    {
+     "Id": 2,
+     "CountId": 1,
+     "ItemId": 6,
+     "BatchId": 13,
+     "SystemQty": "4.0000",
+     "CountedQty": "4.0000",
+     "Cost": "2.7000"
+    },
+    {
+     "Id": 3,
+     "CountId": 1,
+     "ItemId": 25,
+     "BatchId": 7,
+     "SystemQty": "50.0000",
+     "CountedQty": "49.0000",
+     "Cost": "1.7500"
+    },
+    {
+     "Id": 4,
+     "CountId": 1,
+     "ItemId": 25,
+     "BatchId": 8,
+     "SystemQty": "20.0000",
+     "CountedQty": "22.5000",
+     "Cost": "1.9000"
+    },
+    {
+     "Id": 5,
+     "CountId": 1,
+     "ItemId": 28,
+     "BatchId": 10,
+     "SystemQty": "100.0000",
+     "CountedQty": "102.5000",
+     "Cost": "0.5555"
+    },
+    {
+     "Id": 6,
+     "CountId": 1,
+     "ItemId": 31,
+     "BatchId": 9,
+     "SystemQty": "50.0000",
+     "CountedQty": "49.0000",
+     "Cost": "0.6666"
+    },
+    {
+     "Id": 7,
+     "CountId": 1,
+     "ItemId": 32,
+     "BatchId": 11,
+     "SystemQty": "12.5000",
+     "CountedQty": "12.5000",
+     "Cost": "1.1500"
+    },
+    {
+     "Id": 8,
+     "CountId": 1,
+     "ItemId": 43,
+     "BatchId": 5,
+     "SystemQty": "11.5000",
+     "CountedQty": "10.5000",
+     "Cost": "4.7614"
+    },
+    {
+     "Id": 9,
+     "CountId": 1,
+     "ItemId": 31,
+     "BatchId": null,
+     "SystemQty": "0.0000",
+     "CountedQty": "4.0000",
+     "Cost": "0.6666"
+    }
+   ]
+  },
+  "Transfers": {
+   "count": 1,
+   "sums": {},
+   "rows": [
+    {
+     "Id": 1,
+     "FromStoreId": 3,
+     "ToStoreId": 12,
+     "Status": "received"
+    }
+   ]
+  },
+  "TransferLines": {
+   "count": 1,
+   "sums": {
+    "ReqQty": 220000,
+    "IssuedQty": 220000
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "TransferId": 1,
+     "ItemId": 43,
+     "ReqQty": "22.0000",
+     "IssuedQty": "22.0000"
+    }
+   ]
+  },
+  "Purchases": {
+   "count": 6,
+   "sums": {
+    "Total": 8179600
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Kind": "opening",
+     "StoreId": 3,
+     "Total": "131.7000"
+    },
+    {
+     "Id": 2,
+     "Kind": "opening",
+     "StoreId": 3,
+     "Total": "433.3200"
+    },
+    {
+     "Id": 3,
+     "Kind": "opening",
+     "StoreId": 3,
+     "Total": "7.9900"
+    },
+    {
+     "Id": 4,
+     "Kind": "opening",
+     "StoreId": 3,
+     "Total": "125.5000"
+    },
+    {
+     "Id": 5,
+     "Kind": "opening",
+     "StoreId": 3,
+     "Total": "103.2500"
+    },
+    {
+     "Id": 6,
+     "Kind": "supplier",
+     "StoreId": 3,
+     "Total": "16.2000"
+    }
+   ]
+  },
+  "PurchaseLines": {
+   "count": 12,
+   "sums": {
+    "Qty": 605000,
+    "BaseQty": 3495000,
+    "UnitCost": 3954500,
+    "LineTotal": 8179600
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "PurchaseId": 1,
+     "ItemId": 1,
+     "UnitFactor": 10,
+     "Qty": "1.0000",
+     "BaseQty": "10.0000",
+     "UnitCost": "33.0000",
+     "LineTotal": "33.0000"
+    },
+    {
+     "Id": 2,
+     "PurchaseId": 1,
+     "ItemId": 1,
+     "UnitFactor": 1,
+     "Qty": "8.0000",
+     "BaseQty": "8.0000",
+     "UnitCost": "3.4500",
+     "LineTotal": "27.6000"
+    },
+    {
+     "Id": 3,
+     "PurchaseId": 1,
+     "ItemId": 1,
+     "UnitFactor": 10,
+     "Qty": "2.0000",
+     "BaseQty": "20.0000",
+     "UnitCost": "35.5500",
+     "LineTotal": "71.1000"
+    },
+    {
+     "Id": 4,
+     "PurchaseId": 2,
+     "ItemId": 43,
+     "UnitFactor": 14,
+     "Qty": "3.0000",
+     "BaseQty": "42.0000",
+     "UnitCost": "100.0000",
+     "LineTotal": "300.0000"
+    },
+    {
+     "Id": 5,
+     "PurchaseId": 2,
+     "ItemId": 43,
+     "UnitFactor": 7,
+     "Qty": "4.0000",
+     "BaseQty": "28.0000",
+     "UnitCost": "33.3300",
+     "LineTotal": "133.3200"
+    },
+    {
+     "Id": 6,
+     "PurchaseId": 3,
+     "ItemId": 6,
+     "UnitFactor": 3,
+     "Qty": "1.0000",
+     "BaseQty": "3.0000",
+     "UnitCost": "7.9900",
+     "LineTotal": "7.9900"
+    },
+    {
+     "Id": 7,
+     "PurchaseId": 4,
+     "ItemId": 25,
+     "UnitFactor": 50,
+     "Qty": "1.0000",
+     "BaseQty": "50.0000",
+     "UnitCost": "87.5000",
+     "LineTotal": "87.5000"
+    },
+    {
+     "Id": 8,
+     "PurchaseId": 4,
+     "ItemId": 25,
+     "UnitFactor": 1,
+     "Qty": "20.0000",
+     "BaseQty": "20.0000",
+     "UnitCost": "1.9000",
+     "LineTotal": "38.0000"
+    },
+    {
+     "Id": 9,
+     "PurchaseId": 5,
+     "ItemId": 31,
+     "UnitFactor": 50,
+     "Qty": "1.0000",
+     "BaseQty": "50.0000",
+     "UnitCost": "33.3300",
+     "LineTotal": "33.3300"
+    },
+    {
+     "Id": 10,
+     "PurchaseId": 5,
+     "ItemId": 28,
+     "UnitFactor": 100,
+     "Qty": "1.0000",
+     "BaseQty": "100.0000",
+     "UnitCost": "55.5500",
+     "LineTotal": "55.5500"
+    },
+    {
+     "Id": 11,
+     "PurchaseId": 5,
+     "ItemId": 32,
+     "UnitFactor": 1,
+     "Qty": "12.5000",
+     "BaseQty": "12.5000",
+     "UnitCost": "1.1500",
+     "LineTotal": "14.3700"
+    },
+    {
+     "Id": 12,
+     "PurchaseId": 6,
+     "ItemId": 6,
+     "UnitFactor": 1,
+     "Qty": "6.0000",
+     "BaseQty": "6.0000",
+     "UnitCost": "2.7000",
+     "LineTotal": "16.2000"
+    }
+   ]
+  },
+  "Receipts": {
+   "count": 10,
+   "sums": {
+    "Gross": 19550000,
+    "Discount": 0,
+    "Net": 19550000,
+    "Cash": 19550000,
+    "Card": 0,
+    "Credit": 0
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Kind": "payment",
+     "Gross": "1275.0000",
+     "Discount": "0.0000",
+     "Net": "1275.0000",
+     "Cash": "1275.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 2,
+     "Kind": "refund",
+     "Gross": "-595.0000",
+     "Discount": "0.0000",
+     "Net": "-595.0000",
+     "Cash": "-595.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 3,
+     "Kind": "payment",
+     "Gross": "1700.0000",
+     "Discount": "0.0000",
+     "Net": "1700.0000",
+     "Cash": "1700.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 4,
+     "Kind": "refund",
+     "Gross": "-850.0000",
+     "Discount": "0.0000",
+     "Net": "-850.0000",
+     "Cash": "-850.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 5,
+     "Kind": "payment",
+     "Gross": "252.0000",
+     "Discount": "0.0000",
+     "Net": "252.0000",
+     "Cash": "252.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 6,
+     "Kind": "payment",
+     "Gross": "189.0000",
+     "Discount": "0.0000",
+     "Net": "189.0000",
+     "Cash": "189.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 7,
+     "Kind": "refund",
+     "Gross": "-126.0000",
+     "Discount": "0.0000",
+     "Net": "-126.0000",
+     "Cash": "-126.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 8,
+     "Kind": "payment",
+     "Gross": "1080.0000",
+     "Discount": "0.0000",
+     "Net": "1080.0000",
+     "Cash": "1080.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 9,
+     "Kind": "refund",
+     "Gross": "-1080.0000",
+     "Discount": "0.0000",
+     "Net": "-1080.0000",
+     "Cash": "-1080.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    },
+    {
+     "Id": 10,
+     "Kind": "payment",
+     "Gross": "110.0000",
+     "Discount": "0.0000",
+     "Net": "110.0000",
+     "Cash": "110.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000"
+    }
+   ]
+  },
+  "ReceiptLines": {
+   "count": 10,
+   "sums": {
+    "UnitPrice": 21800000,
+    "Amount": 19550000,
+    "DiscountShare": 0,
+    "PayerAmount": 0
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "ReceiptId": 1,
+     "VisitItemId": 1,
+     "Qty": 15,
+     "UnitPrice": "85.0000",
+     "Amount": "1275.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 2,
+     "ReceiptId": 2,
+     "VisitItemId": 1,
+     "Qty": 7,
+     "UnitPrice": "85.0000",
+     "Amount": "-595.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 3,
+     "ReceiptId": 3,
+     "VisitItemId": 2,
+     "Qty": 2,
+     "UnitPrice": "850.0000",
+     "Amount": "1700.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 4,
+     "ReceiptId": 4,
+     "VisitItemId": 2,
+     "Qty": 1,
+     "UnitPrice": "850.0000",
+     "Amount": "-850.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 5,
+     "ReceiptId": 5,
+     "VisitItemId": 3,
+     "Qty": 2,
+     "UnitPrice": "126.0000",
+     "Amount": "252.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 6,
+     "ReceiptId": 6,
+     "VisitItemId": 4,
+     "Qty": 3,
+     "UnitPrice": "63.0000",
+     "Amount": "189.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 7,
+     "ReceiptId": 7,
+     "VisitItemId": 4,
+     "Qty": 2,
+     "UnitPrice": "63.0000",
+     "Amount": "-126.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 8,
+     "ReceiptId": 8,
+     "VisitItemId": 6,
+     "Qty": 60,
+     "UnitPrice": "18.0000",
+     "Amount": "1080.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 9,
+     "ReceiptId": 9,
+     "VisitItemId": 6,
+     "Qty": 60,
+     "UnitPrice": "18.0000",
+     "Amount": "-1080.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    },
+    {
+     "Id": 10,
+     "ReceiptId": 10,
+     "VisitItemId": 7,
+     "Qty": 5,
+     "UnitPrice": "22.0000",
+     "Amount": "110.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000"
+    }
+   ]
+  },
+  "VisitItems": {
+   "count": 8,
+   "sums": {
+    "UnitPrice": 11910000,
+    "Amount": 56770000,
+    "DoctorPct": 0,
+    "PayerPct": 0,
+    "PayerAmount": 0,
+    "PatientAmount": 56770000,
+    "RefundDue": 0
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "VisitId": 1,
+     "Qty": 15,
+     "UnitFactor": 1,
+     "ReturnedQty": 7,
+     "UnitPrice": "85.0000",
+     "Amount": "1275.0000",
+     "Status": "active",
+     "StockItemId": 1,
+     "StoreId": 3
+    },
+    {
+     "Id": 2,
+     "VisitId": 2,
+     "Qty": 2,
+     "UnitFactor": 10,
+     "ReturnedQty": 1,
+     "UnitPrice": "850.0000",
+     "Amount": "1700.0000",
+     "Status": "active",
+     "StockItemId": 1,
+     "StoreId": 3
+    },
+    {
+     "Id": 3,
+     "VisitId": 3,
+     "Qty": 2,
+     "UnitFactor": 14,
+     "ReturnedQty": 0,
+     "UnitPrice": "126.0000",
+     "Amount": "252.0000",
+     "Status": "active",
+     "StockItemId": 43,
+     "StoreId": 3
+    },
+    {
+     "Id": 4,
+     "VisitId": 3,
+     "Qty": 3,
+     "UnitFactor": 7,
+     "ReturnedQty": 2,
+     "UnitPrice": "63.0000",
+     "Amount": "189.0000",
+     "Status": "active",
+     "StockItemId": 43,
+     "StoreId": 3
+    },
+    {
+     "Id": 5,
+     "VisitId": 4,
+     "Qty": 55,
+     "UnitFactor": 1,
+     "ReturnedQty": 0,
+     "UnitPrice": "18.0000",
+     "Amount": "990.0000",
+     "Status": "voided",
+     "StockItemId": 25,
+     "StoreId": 3
+    },
+    {
+     "Id": 6,
+     "VisitId": 5,
+     "Qty": 60,
+     "UnitFactor": 1,
+     "ReturnedQty": 0,
+     "UnitPrice": "18.0000",
+     "Amount": "1080.0000",
+     "Status": "voided",
+     "StockItemId": 25,
+     "StoreId": 3
+    },
+    {
+     "Id": 7,
+     "VisitId": 6,
+     "Qty": 5,
+     "UnitFactor": 1,
+     "ReturnedQty": 0,
+     "UnitPrice": "22.0000",
+     "Amount": "110.0000",
+     "Status": "active",
+     "StockItemId": 6,
+     "StoreId": 3
+    },
+    {
+     "Id": 8,
+     "VisitId": 7,
+     "Qty": 9,
+     "UnitFactor": 1,
+     "ReturnedQty": 0,
+     "UnitPrice": "9.0000",
+     "Amount": "81.0000",
+     "Status": "active",
+     "StockItemId": 43,
+     "StoreId": 12
+    }
+   ]
+  }
+ },
+ "known": [
+  {
+   "name": "ربط الأرقام الكسرية في مشغّل SQL Server",
+   "where": "src/db/mssql.js سطر 14",
+   "effect": "الأرقام الكسرية بتتربط Decimal(12,2): التكلفة (12,4) والنسب والكميات ممكن تتقرّب لخانتين على SQL Server فقط. الخط ده SQLite ومش بيكشفها"
+  }
+ ]
+}

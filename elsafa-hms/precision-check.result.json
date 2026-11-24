@@ -1,0 +1,773 @@
+{
+ "at": "2026-11-22T13:39:11.859Z",
+ "target": "ElsafaHMS",
+ "failures": 0,
+ "results": [
+  {
+   "group": "env",
+   "name": "version",
+   "actual": "Microsoft SQL Server 2014 (SP2) (KB3171021) - 12.0.5000.0 (X64) ",
+   "ok": true,
+   "driver": {
+    "mssql": "12.7.14"
+   }
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "0",
+   "expected": "0.00",
+   "actual": "0.00",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "0.01",
+   "expected": "0.01",
+   "actual": "0.01",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "0.07",
+   "expected": "0.07",
+   "actual": "0.07",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "33.33",
+   "expected": "33.33",
+   "actual": "33.33",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "333.34",
+   "expected": "333.34",
+   "actual": "333.34",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "1234.5",
+   "expected": "1234.50",
+   "actual": "1234.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "902.37",
+   "expected": "902.37",
+   "actual": "902.37",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "99999999.99",
+   "expected": "99999999.99",
+   "actual": "99999999.99",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "-12.5",
+   "expected": "-12.50",
+   "actual": "-12.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m12 (12,2)",
+   "input": "-0.01",
+   "expected": "-0.01",
+   "actual": "-0.01",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "0",
+   "expected": "0.00",
+   "actual": "0.00",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "0.01",
+   "expected": "0.01",
+   "actual": "0.01",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "0.07",
+   "expected": "0.07",
+   "actual": "0.07",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "33.33",
+   "expected": "33.33",
+   "actual": "33.33",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "333.34",
+   "expected": "333.34",
+   "actual": "333.34",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "1234.5",
+   "expected": "1234.50",
+   "actual": "1234.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "902.37",
+   "expected": "902.37",
+   "actual": "902.37",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "99999999.99",
+   "expected": "99999999.99",
+   "actual": "99999999.99",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "-12.5",
+   "expected": "-12.50",
+   "actual": "-12.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-money",
+   "name": "m14 (14,2)",
+   "input": "-0.01",
+   "expected": "-0.01",
+   "actual": "-0.01",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "0.0001",
+   "expected": "0.0001",
+   "actual": "0.0001",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "2.6633",
+   "expected": "2.6633",
+   "actual": "2.6633",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "3.3",
+   "expected": "3.3000",
+   "actual": "3.3000",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "4.7614",
+   "expected": "4.7614",
+   "actual": "4.7614",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "7.1429",
+   "expected": "7.1429",
+   "actual": "7.1429",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "12345.6789",
+   "expected": "12345.6789",
+   "actual": "12345.6789",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-cost",
+   "name": "c12 (12,4)",
+   "input": "99999999.9999",
+   "expected": "99999999.9999",
+   "actual": "99999999.9999",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "0",
+   "expected": "0.00",
+   "actual": "0.00",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "0.01",
+   "expected": "0.01",
+   "actual": "0.01",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "7.5",
+   "expected": "7.50",
+   "actual": "7.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "12.5",
+   "expected": "12.50",
+   "actual": "12.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "33.33",
+   "expected": "33.33",
+   "actual": "33.33",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "66.67",
+   "expected": "66.67",
+   "actual": "66.67",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "100",
+   "expected": "100.00",
+   "actual": "100.00",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-pct",
+   "name": "p5 (5,2)",
+   "input": "999.99",
+   "expected": "999.99",
+   "actual": "999.99",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-qty",
+   "name": "m14 (14,2)",
+   "input": "0.01",
+   "expected": "0.01",
+   "actual": "0.01",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-qty",
+   "name": "m14 (14,2)",
+   "input": "0.5",
+   "expected": "0.50",
+   "actual": "0.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-qty",
+   "name": "m14 (14,2)",
+   "input": "3.25",
+   "expected": "3.25",
+   "actual": "3.25",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-qty",
+   "name": "m14 (14,2)",
+   "input": "12.5",
+   "expected": "12.50",
+   "actual": "12.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-qty",
+   "name": "m14 (14,2)",
+   "input": "1000",
+   "expected": "1000.00",
+   "actual": "1000.00",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "typed-qty",
+   "name": "m14 (14,2)",
+   "input": "123456789.12",
+   "expected": "123456789.12",
+   "actual": "123456789.12",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "c12",
+   "input": "7.1429",
+   "expected": "7.1429",
+   "actual": "7.1429",
+   "ok": true,
+   "note": "كان بيطلع 7.14 قبل الإصلاح"
+  },
+  {
+   "group": "plain",
+   "name": "c12",
+   "input": "2.6633",
+   "expected": "2.6633",
+   "actual": "2.6633",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "c12",
+   "input": "4.7614",
+   "expected": "4.7614",
+   "actual": "4.7614",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "c12",
+   "input": "0.0001",
+   "expected": "0.0001",
+   "actual": "0.0001",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "c12",
+   "input": "12345.6789",
+   "expected": "12345.6789",
+   "actual": "12345.6789",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "p5",
+   "input": "12.5",
+   "expected": "12.50",
+   "actual": "12.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "p5",
+   "input": "33.33",
+   "expected": "33.33",
+   "actual": "33.33",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "p5",
+   "input": "7.5",
+   "expected": "7.50",
+   "actual": "7.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "m12",
+   "input": "0.07",
+   "expected": "0.07",
+   "actual": "0.07",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "m12",
+   "input": "33.33",
+   "expected": "33.33",
+   "actual": "33.33",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "m12",
+   "input": "1234.5",
+   "expected": "1234.50",
+   "actual": "1234.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "plain",
+   "name": "m12",
+   "input": "12.5",
+   "expected": "12.50",
+   "actual": "12.50",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "column-rounding",
+   "name": "m12",
+   "input": "1.005",
+   "expected": "1.01",
+   "actual": "1.01",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "column-rounding",
+   "name": "m12",
+   "input": "1.015",
+   "expected": "1.02",
+   "actual": "1.02",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "column-rounding",
+   "name": "m12",
+   "input": "-0.005",
+   "expected": "-0.01",
+   "actual": "-0.01",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "column-rounding",
+   "name": "m12",
+   "input": "0.125",
+   "expected": "0.13",
+   "actual": "0.13",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "column-rounding",
+   "name": "c12",
+   "input": "7.142857142857143",
+   "expected": "7.1429",
+   "actual": "7.1429",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "column-rounding",
+   "name": "p5",
+   "input": "12.345",
+   "expected": "12.35",
+   "actual": "12.35",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "column-rounding",
+   "name": "m12",
+   "input": "2.675",
+   "expected": "2.68",
+   "actual": "2.68",
+   "ok": true,
+   "note": "تقريب العمود (مش الربط)"
+  },
+  {
+   "group": "expr",
+   "name": "Qty = Qty + ?",
+   "input": "10 + 0.25",
+   "expected": "10.25",
+   "actual": "10.25",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "expr",
+   "name": "Cost = Cost + ?",
+   "input": "7.1429 + 0.0001",
+   "expected": "7.143",
+   "actual": "7.1430",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "expr",
+   "name": "Qty = Qty - 0.25 (عادي)",
+   "input": "10.25 - 0.25",
+   "expected": "10",
+   "actual": "10.00",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "where",
+   "name": "c12 = 7.143",
+   "input": "7.143",
+   "expected": "1",
+   "actual": "1",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "where",
+   "name": "c12 = 7.14 (مفيش تقريب للمقارنة)",
+   "input": "7.14",
+   "expected": "0",
+   "actual": "0",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "where",
+   "name": "p5 = 12.5",
+   "input": "12.5",
+   "expected": "1",
+   "actual": "1",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "sum",
+   "name": "SUM(m12) للمبالغ المسجّلة",
+   "input": "مجموع بالقروش",
+   "expected": "100002491.10",
+   "actual": "100002491.10",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "group": "big",
+   "name": "w18 (18,4)",
+   "input": "123456789012.3456",
+   "expected": "123456789012.3456",
+   "actual": "123456789012.3456",
+   "ok": true,
+   "note": "داخل حدود الدقة الآمنة"
+  },
+  {
+   "group": "big",
+   "name": "w18 (18,4)",
+   "input": "99999999999999.98",
+   "expected": "رفض صريح أو قيمة صحيحة",
+   "actual": "استثناء: تكلفة: القيمة 99999999999999.98 أكبر من اللي يتحمّله الربط بدقة 4 خانات",
+   "ok": true,
+   "note": "مقبول لو رفض واضح"
+  },
+  {
+   "group": "big",
+   "name": "w18 (18,4)",
+   "input": "9007199254740.99",
+   "expected": "رفض صريح أو قيمة صحيحة",
+   "actual": "استثناء: تكلفة: القيمة 9007199254740.99 أكبر من اللي يتحمّله الربط بدقة 4 خانات",
+   "ok": true,
+   "note": "مقبول لو رفض واضح"
+  },
+  {
+   "group": "big",
+   "name": "w18 (18,4)",
+   "input": "1234567890.1234",
+   "expected": "1234567890.1234",
+   "actual": "1234567890.1234",
+   "ok": true,
+   "note": "داخل حدود الدقة الآمنة"
+  },
+  {
+   "group": "read",
+   "name": "c12 بترجع كرقم JS",
+   "input": "7.1429",
+   "expected": "7.1429",
+   "actual": "7.1429",
+   "ok": true,
+   "note": "number"
+  },
+  {
+   "group": "schema",
+   "name": "decimal columns",
+   "actual": {
+    "12,2": 50,
+    "5,2": 9,
+    "14,2": 23,
+    "12,4": 6
+   },
+   "ok": true,
+   "columns": {
+    "12,2": [
+     "AdmissionItems.Amount",
+     "AdmissionItems.PatientAmount",
+     "AdmissionItems.PayerAmount",
+     "AdmissionItems.UnitPrice",
+     "Admissions.DepositRequired",
+     "Approvals.Amount",
+     "ClaimLines.Amount",
+     "ClaimLines.FullAmount",
+     "ClaimLines.Rejected",
+     "DoctorEarnings.Amount",
+     "DoctorEarnings.BaseAmount",
+     "DoctorEarnings.PayerPart",
+     "FloorClassPrices.NightPrice",
+     "FloorServicePrices.Price",
+     "LateCharges.Amount",
+     "LateCharges.UnitPrice",
+     "PayerClassPrices.NightPrice",
+     "PayerLedger.Amount",
+     "PayerLedger.FullAmount",
+     "PayerPrices.Price",
+     "Payers.VisitCap",
+     "Payers.YearCap",
+     "PayOrders.Amount",
+     "PayOrders.Credit",
+     "PayOrders.Discount",
+     "PurchaseLines.Qty",
+     "ReceiptLines.Amount",
+     "ReceiptLines.DiscountShare",
+     "ReceiptLines.PayerAmount",
+     "ReceiptLines.UnitPrice",
+     "Receipts.Card",
+     "Receipts.Cash",
+     "Receipts.Credit",
+     "Receipts.Discount",
+     "Receipts.Gross",
+     "Receipts.Net",
+     "RoomClasses.Deposit",
+     "RoomClasses.NightPrice",
+     "ServicePrices.Price",
+     "Shifts.CardTotal",
+     "Shifts.CountedCash",
+     "Shifts.ExpectedCash",
+     "StockItems.MinQty",
+     "StockItems.Price",
+     "Tickets.Total",
+     "VisitItems.Amount",
+     "VisitItems.PatientAmount",
+     "VisitItems.PayerAmount",
+     "VisitItems.RefundDue",
+     "VisitItems.UnitPrice"
+    ],
+    "5,2": [
+     "AdmissionItems.DoctorPct",
+     "AdmissionItems.PayerPct",
+     "DoctorEarnings.Pct",
+     "DoctorPayouts.TaxPct",
+     "DoctorShares.Pct",
+     "Payers.DiscountPct",
+     "TierCoverage.Pct",
+     "VisitItems.DoctorPct",
+     "VisitItems.PayerPct"
+    ],
+    "14,2": [
+     "CashVouchers.Amount",
+     "ClaimPayments.Amount",
+     "Claims.Paid",
+     "Claims.Rejected",
+     "Claims.Total",
+     "DoctorPayouts.Gross",
+     "DoctorPayouts.Net",
+     "DoctorPayouts.Tax",
+     "Expenses.Amount",
+     "ObligationInstallments.Amount",
+     "PurchaseLines.BaseQty",
+     "PurchaseLines.LineTotal",
+     "Purchases.Total",
+     "StockBatches.Qty",
+     "StockCountLines.CountedQty",
+     "StockCountLines.SystemQty",
+     "StockCounts.DiffValue",
+     "StockMoves.Qty",
+     "StockWaste.Qty",
+     "SupplierInvoices.Amount",
+     "SupplierPayments.Amount",
+     "TransferLines.IssuedQty",
+     "TransferLines.ReqQty"
+    ],
+    "12,4": [
+     "PurchaseLines.UnitCost",
+     "StockBatches.Cost",
+     "StockCountLines.Cost",
+     "StockItems.LastCost",
+     "StockMoves.Cost",
+     "StockWaste.Cost"
+    ]
+   }
+  }
+ ]
+}

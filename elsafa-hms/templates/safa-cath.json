@@ -1,0 +1,22 @@
+{
+  "name": "الصفا كاث لأبحاث القلب",
+  "note": "قالب نسخة الصفا كاث (القسطرة): هوية مؤقتة بلوجو المستشفى، وأقسام المعمل والأشعة والصيدلية والتعاقدات مقفولة. يتطبّق بـ npm run template -- templates/safa-cath.json وبعدها كل حاجة (حتى فتح الأقسام) تتعدل من الإعدادات.",
+  "logo": "elsafa-logo.png",
+  "settings": {
+    "hospitalName": "الصفا كاث لأبحاث القلب",
+    "hospitalSub": "القسطرة وأبحاث القلب",
+    "colorPrimary": "#9a0000",
+    "colorAccent": "#ffbd81",
+    "tz": "Africa/Cairo",
+    "dayStart": "07:00",
+    "shiftAmFrom": "07:00",
+    "shiftPmFrom": "15:00",
+    "shiftNightFrom": "21:00",
+    "shiftAmName": "صباحي",
+    "shiftPmName": "مسائي",
+    "shiftNightName": "سهر",
+    "modLab": "0",
+    "modPharmacy": "0",
+    "modContracts": "0"
+  }
+}

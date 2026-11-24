@@ -1,0 +1,19 @@
+{
+  "name": "مستشفى الصفا دمياط",
+  "note": "قالب بداية: الهوية والورديات. يتطبّق بـ npm run template -- templates/elsafa.json وبعدها كل حاجة تتعدل من الإعدادات.",
+  "logo": "elsafa-logo.png",
+  "settings": {
+    "hospitalName": "مستشفى الصفا دمياط",
+    "hospitalSub": "الاستقبال والخزينة",
+    "colorPrimary": "#9a0000",
+    "colorAccent": "#ffbd81",
+    "tz": "Africa/Cairo",
+    "dayStart": "07:00",
+    "shiftAmFrom": "07:00",
+    "shiftPmFrom": "15:00",
+    "shiftNightFrom": "21:00",
+    "shiftAmName": "صباحي",
+    "shiftPmName": "مسائي",
+    "shiftNightName": "سهر"
+  }
+}

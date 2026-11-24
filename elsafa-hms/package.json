@@ -1,0 +1,27 @@
+{
+  "name": "elsafa-hms",
+  "version": "0.16.0",
+  "private": true,
+  "type": "module",
+  "description": "نظام إدارة المستشفى - محرك إعدادات مرن لكل مستشفى",
+  "scripts": {
+    "start": "node src/server.js",
+    "db:init": "node scripts/db-init.js",
+    "seed:demo": "node scripts/seed-demo.js",
+    "user:add": "node scripts/user-add.js",
+    "template": "node scripts/apply-template.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "exceljs": "^4.4.0",
+    "express": "^4.22.3",
+    "mssql": "^12.7.14"
+  },
+  "overrides": {
+    "uuid": "^11.1.1"
+  }
+}

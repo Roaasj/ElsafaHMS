@@ -1,0 +1,2466 @@
+{
+ "_about": "نتائج مرجعية محاسبية ثابتة (Baseline). أي اختلاف غير مفسَّر فيها = فشل المرحلة. اتولّد بـ test/baseline/record.js",
+ "_recordedWith": {
+  "node": "v22.23.5",
+  "app": "0.16.0",
+  "engine": "sqlite (in-memory)"
+ },
+ "steps": [
+  {
+   "name": "نقدي مختلط (كاش+فيزا) بنود كسرية",
+   "visit": 1,
+   "due": "199.9800",
+   "card": "50.0000",
+   "receipt": 1
+  },
+  {
+   "name": "خصم من غير موافقة بيترفض",
+   "status": 400
+  },
+  {
+   "name": "خصم وآجل وباقي كاش",
+   "due": "86.6000",
+   "discount": "2.0000",
+   "credit": "10.0000",
+   "receipt": 2
+  },
+  {
+   "name": "إلغاء إيصال",
+   "status": 201,
+   "pay": 3,
+   "canceled": 4
+  },
+  {
+   "name": "مرتجع مستلزم 1 من 3 بعد خصم",
+   "status": 201,
+   "due": "224.0000",
+   "discount": "4.0000",
+   "receipt": 6
+  },
+  {
+   "name": "مرتجع الباقي (2 من 3)",
+   "status": 201
+  },
+  {
+   "name": "بيع صيدلية بالعبوة",
+   "status": 201
+  },
+  {
+   "name": "زيارة تعاقد جهة أساسية خصم 12.5",
+   "due": "116.6500",
+   "receipt": 10
+  },
+  {
+   "name": "زيارة تعاقد جهة أساسية خصم 7.5",
+   "due": "0.0000",
+   "receipt": 11
+  },
+  {
+   "name": "إلغاء إيصال تعاقد (عكس نصيب الجهة)",
+   "status": 201,
+   "due": "116.6600"
+  },
+  {
+   "name": "تعاقد بحد أقصى للزيارة",
+   "due": "149.9700"
+  },
+  {
+   "name": "نقدي مؤقت ← موافقة ← استرداد",
+   "approve": 200,
+   "refundDue": "109.6200",
+   "status": 201,
+   "net": "-109.6200"
+  },
+  {
+   "name": "إذن دفع واتحصّل (كاش+فيزا بخصم)",
+   "discount": "3.0000",
+   "card": "20.0000"
+  },
+  {
+   "name": "إلغاء إذن",
+   "status": 200
+  },
+  {
+   "name": "إغلاق وردية بعجز",
+   "status": 200,
+   "expected": "80.7100"
+  },
+  {
+   "name": "معاينة الخروج",
+   "totals": {
+    "nights": "600.0000",
+    "services": "4340.5000",
+    "total": "4940.5000",
+    "payer": "0.0000",
+    "patient": "4940.5000",
+    "paid": "3333.0000",
+    "discount": "0.0000",
+    "credit": "0.0000",
+    "balance": "1607.5000",
+    "deposit": "3000.0000"
+   }
+  },
+  {
+   "name": "خروج بخصم وآجل",
+   "status": 201,
+   "remaining": "1607.5000",
+   "discount": "100.0000",
+   "credit": "50.0000"
+  },
+  {
+   "name": "خروج برصيد للمريض (مرتجع تأمين)",
+   "status": 201,
+   "balance": "-2362.9500"
+  },
+  {
+   "name": "دخول تعاقد (اترفض)",
+   "status": 400,
+   "err": "{\"error\":\"مجموع الدفع لازم يساوي التأمين (3000 جنيه)\"}"
+  },
+  {
+   "name": "مطالبة جهة أساسية خصم 12.5",
+   "status": 201,
+   "total": "167.9400",
+   "words": "فقط مائة وسبعة وستون جنيهًا وأربعة وتسعون قرشًا لا غير"
+  },
+  {
+   "name": "سداد جزئي مطالبة",
+   "status": 201
+  },
+  {
+   "name": "مطالبة جهة أساسية خصم 7.5",
+   "status": 201,
+   "total": "92.4900",
+   "words": "فقط اثنان وتسعون جنيهًا وتسعة وأربعون قرشًا لا غير"
+  },
+  {
+   "name": "سداد جزئي مطالبة",
+   "status": 201
+  },
+  {
+   "name": "مطالبة جهة أساسية قائمة 80",
+   "status": 201,
+   "total": "150.0000",
+   "words": "فقط مائة وخمسون جنيهًا لا غير"
+  },
+  {
+   "name": "سداد جزئي مطالبة",
+   "status": 201
+  },
+  {
+   "name": "تجهيز مستحقات",
+   "status": 200,
+   "taxPct": 5,
+   "rows": [
+    {
+     "id": 3,
+     "gross": "523.6900",
+     "tax": "26.1800",
+     "net": "497.5100"
+    },
+    {
+     "id": 5,
+     "gross": "30.0000",
+     "tax": "1.5000",
+     "net": "28.5000"
+    },
+    {
+     "id": 6,
+     "gross": "935.9000",
+     "tax": "46.8000",
+     "net": "889.1000"
+    }
+   ]
+  },
+  {
+   "name": "صرف مستحقات",
+   "status": 201
+  },
+  {
+   "name": "فاتورة مورد 1234.56",
+   "status": 201
+  },
+  {
+   "name": "مصروف 750.25",
+   "status": 201
+  }
+ ],
+ "db": {
+  "AdmissionItems": {
+   "count": 6,
+   "sums": {
+    "UnitPrice": 17752500,
+    "Amount": 55775500,
+    "DoctorPct": 750000,
+    "PayerPct": 0,
+    "PayerAmount": 0,
+    "PatientAmount": 55775500
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "UnitPrice": "600.0000",
+     "Amount": "600.0000",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "600.0000",
+     "Kind": "night",
+     "Status": "active",
+     "Dept": "ward",
+     "Qty": 1
+    },
+    {
+     "Id": 2,
+     "UnitPrice": "300.0000",
+     "Amount": "600.0000",
+     "DoctorPct": "40.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "600.0000",
+     "Kind": "service",
+     "Status": "active",
+     "Dept": "ward",
+     "Qty": 2
+    },
+    {
+     "Id": 3,
+     "UnitPrice": "12.3500",
+     "Amount": "1235.0000",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "1235.0000",
+     "Kind": "service",
+     "Status": "active",
+     "Dept": "lab",
+     "Qty": 100
+    },
+    {
+     "Id": 4,
+     "UnitPrice": "250.5500",
+     "Amount": "2505.5000",
+     "DoctorPct": "35.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "2505.5000",
+     "Kind": "service",
+     "Status": "active",
+     "Dept": "radiology",
+     "Qty": 10
+    },
+    {
+     "Id": 5,
+     "UnitPrice": "600.0000",
+     "Amount": "600.0000",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "600.0000",
+     "Kind": "night",
+     "Status": "active",
+     "Dept": "ward",
+     "Qty": 1
+    },
+    {
+     "Id": 6,
+     "UnitPrice": "12.3500",
+     "Amount": "37.0500",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "37.0500",
+     "Kind": "service",
+     "Status": "active",
+     "Dept": "lab",
+     "Qty": 3
+    }
+   ]
+  },
+  "Admissions": {
+   "count": 2,
+   "sums": {
+    "DepositRequired": 60000000
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "DepositRequired": "3000.0000",
+     "Status": "discharged"
+    },
+    {
+     "Id": 2,
+     "DepositRequired": "3000.0000",
+     "Status": "discharged"
+    }
+   ]
+  },
+  "Approvals": {
+   "count": 1,
+   "sums": {
+    "Amount": 1096200
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Amount": "109.6200",
+     "Status": "approved"
+    }
+   ]
+  },
+  "CashVouchers": {
+   "count": 3,
+   "sums": {
+    "Amount": 14151100
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Amount": "497.5100",
+     "Kind": "payout",
+     "Status": "pending"
+    },
+    {
+     "Id": 2,
+     "Amount": "28.5000",
+     "Kind": "payout",
+     "Status": "pending"
+    },
+    {
+     "Id": 3,
+     "Amount": "889.1000",
+     "Kind": "payout",
+     "Status": "pending"
+    }
+   ]
+  },
+  "ClaimLines": {
+   "count": 5,
+   "sums": {
+    "FullAmount": 7866600,
+    "Amount": 4104300,
+    "Rejected": 0
+   },
+   "rows": [
+    {
+     "Id": 4,
+     "FullAmount": "87.4800",
+     "Amount": "29.1600",
+     "Rejected": "0.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 5,
+     "FullAmount": "87.4900",
+     "Amount": "29.1600",
+     "Rejected": "0.0000",
+     "Qty": 1
+    },
+    {
+     "Id": 6,
+     "FullAmount": "219.2300",
+     "Amount": "109.6200",
+     "Rejected": "0.0000",
+     "Qty": 1
+    },
+    {
+     "Id": 8,
+     "FullAmount": "92.4900",
+     "Amount": "92.4900",
+     "Rejected": "0.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 10,
+     "FullAmount": "299.9700",
+     "Amount": "150.0000",
+     "Rejected": "0.0000",
+     "Qty": 3
+    }
+   ]
+  },
+  "ClaimPayments": {
+   "count": 3,
+   "sums": {
+    "Amount": 1368100
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Amount": "55.9800"
+    },
+    {
+     "Id": 2,
+     "Amount": "30.8300"
+    },
+    {
+     "Id": 3,
+     "Amount": "50.0000"
+    }
+   ]
+  },
+  "Claims": {
+   "count": 3,
+   "sums": {
+    "Total": 4104300,
+    "Paid": 1368100,
+    "Rejected": 0
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Total": "167.9400",
+     "Paid": "55.9800",
+     "Rejected": "0.0000",
+     "Status": "partial"
+    },
+    {
+     "Id": 2,
+     "Total": "92.4900",
+     "Paid": "30.8300",
+     "Rejected": "0.0000",
+     "Status": "partial"
+    },
+    {
+     "Id": 3,
+     "Total": "150.0000",
+     "Paid": "50.0000",
+     "Rejected": "0.0000",
+     "Status": "partial"
+    }
+   ]
+  },
+  "DoctorEarnings": {
+   "count": 13,
+   "sums": {
+    "BaseAmount": 43839800,
+    "Pct": 4900000,
+    "Amount": 16006600,
+    "PayerPart": 1110700
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "BaseAmount": "99.9900",
+     "Pct": "40.0000",
+     "Amount": "40.0000",
+     "PayerPart": "0.0000"
+    },
+    {
+     "Id": 2,
+     "BaseAmount": "99.9900",
+     "Pct": "30.0000",
+     "Amount": "30.0000",
+     "PayerPart": "0.0000"
+    },
+    {
+     "Id": 3,
+     "BaseAmount": "289.9700",
+     "Pct": "40.0000",
+     "Amount": "115.9900",
+     "PayerPart": "0.0000"
+    },
+    {
+     "Id": 4,
+     "BaseAmount": "87.4800",
+     "Pct": "40.0000",
+     "Amount": "34.9900",
+     "PayerPart": "11.6600"
+    },
+    {
+     "Id": 5,
+     "BaseAmount": "87.4900",
+     "Pct": "40.0000",
+     "Amount": "35.0000",
+     "PayerPart": "11.6600"
+    },
+    {
+     "Id": 6,
+     "BaseAmount": "92.4900",
+     "Pct": "30.0000",
+     "Amount": "27.7500",
+     "PayerPart": "27.7500"
+    },
+    {
+     "Id": 7,
+     "BaseAmount": "174.9800",
+     "Pct": "40.0000",
+     "Amount": "69.9900",
+     "PayerPart": "23.3300"
+    },
+    {
+     "Id": 8,
+     "BaseAmount": "-174.9800",
+     "Pct": "40.0000",
+     "Amount": "-69.9900",
+     "PayerPart": "-23.3300"
+    },
+    {
+     "Id": 9,
+     "BaseAmount": "299.9700",
+     "Pct": "40.0000",
+     "Amount": "119.9900",
+     "PayerPart": "60.0000"
+    },
+    {
+     "Id": 10,
+     "BaseAmount": "219.2300",
+     "Pct": "35.0000",
+     "Amount": "76.7300",
+     "PayerPart": "0.0000"
+    },
+    {
+     "Id": 11,
+     "BaseAmount": "64.7400",
+     "Pct": "40.0000",
+     "Amount": "25.9000",
+     "PayerPart": "0.0000"
+    },
+    {
+     "Id": 12,
+     "BaseAmount": "587.8600",
+     "Pct": "40.0000",
+     "Amount": "235.1400",
+     "PayerPart": "0.0000"
+    },
+    {
+     "Id": 13,
+     "BaseAmount": "2454.7700",
+     "Pct": "35.0000",
+     "Amount": "859.1700",
+     "PayerPart": "0.0000"
+    }
+   ]
+  },
+  "DoctorPayouts": {
+   "count": 3,
+   "sums": {
+    "Gross": 14895900,
+    "TaxPct": 150000,
+    "Tax": 744800,
+    "Net": 14151100
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Gross": "523.6900",
+     "TaxPct": "5.0000",
+     "Tax": "26.1800",
+     "Net": "497.5100",
+     "Status": "issued"
+    },
+    {
+     "Id": 2,
+     "Gross": "30.0000",
+     "TaxPct": "5.0000",
+     "Tax": "1.5000",
+     "Net": "28.5000",
+     "Status": "issued"
+    },
+    {
+     "Id": 3,
+     "Gross": "935.9000",
+     "TaxPct": "5.0000",
+     "Tax": "46.8000",
+     "Net": "889.1000",
+     "Status": "issued"
+    }
+   ]
+  },
+  "DoctorShares": {
+   "count": 8,
+   "sums": {
+    "Pct": 3000000
+   }
+  },
+  "Expenses": {
+   "count": 1,
+   "sums": {
+    "Amount": 7502500
+   }
+  },
+  "FloorClassPrices": {
+   "count": 0,
+   "sums": {
+    "NightPrice": 0
+   }
+  },
+  "FloorServicePrices": {
+   "count": 0,
+   "sums": {
+    "Price": 0
+   }
+  },
+  "LateCharges": {
+   "count": 0,
+   "sums": {
+    "UnitPrice": 0,
+    "Amount": 0
+   }
+  },
+  "ObligationInstallments": {
+   "count": 0,
+   "sums": {
+    "Amount": 0
+   }
+  },
+  "PayOrders": {
+   "count": 2,
+   "sums": {
+    "Amount": 1130600,
+    "Credit": 0,
+    "Discount": 30000
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Amount": "100.7100",
+     "Credit": "0.0000",
+     "Discount": "3.0000",
+     "Kind": "visit",
+     "Status": "done"
+    },
+    {
+     "Id": 2,
+     "Amount": "12.3500",
+     "Credit": "0.0000",
+     "Discount": "0.0000",
+     "Kind": "visit",
+     "Status": "cancelled"
+    }
+   ]
+  },
+  "PayerClassPrices": {
+   "count": 0,
+   "sums": {
+    "NightPrice": 0
+   }
+  },
+  "PayerLedger": {
+   "count": 7,
+   "sums": {
+    "FullAmount": 7866600,
+    "Amount": 4104300
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "FullAmount": "87.4800",
+     "Amount": "29.1600"
+    },
+    {
+     "Id": 2,
+     "FullAmount": "87.4900",
+     "Amount": "29.1600"
+    },
+    {
+     "Id": 3,
+     "FullAmount": "92.4900",
+     "Amount": "92.4900"
+    },
+    {
+     "Id": 4,
+     "FullAmount": "174.9800",
+     "Amount": "58.3200"
+    },
+    {
+     "Id": 5,
+     "FullAmount": "-174.9800",
+     "Amount": "-58.3200"
+    },
+    {
+     "Id": 6,
+     "FullAmount": "299.9700",
+     "Amount": "150.0000"
+    },
+    {
+     "Id": 7,
+     "FullAmount": "219.2300",
+     "Amount": "109.6200"
+    }
+   ]
+  },
+  "PayerPrices": {
+   "count": 4,
+   "sums": {
+    "Price": 20700000
+   }
+  },
+  "Payers": {
+   "count": 6,
+   "sums": {
+    "DiscountPct": 300000,
+    "VisitCap": 1051500000,
+    "YearCap": 0
+   }
+  },
+  "PurchaseLines": {
+   "count": 6,
+   "sums": {
+    "Qty": 1060000,
+    "BaseQty": 1840000,
+    "UnitCost": 3200000,
+    "LineTotal": 30000000
+   }
+  },
+  "Purchases": {
+   "count": 2,
+   "sums": {
+    "Total": 30000000
+   }
+  },
+  "ReceiptLines": {
+   "count": 21,
+   "sums": {
+    "UnitPrice": 12227700,
+    "Amount": 15990700,
+    "DiscountShare": 190000,
+    "PayerAmount": 3008100
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "UnitPrice": "33.3300",
+     "Amount": "99.9900",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 2,
+     "UnitPrice": "99.9900",
+     "Amount": "99.9900",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 1
+    },
+    {
+     "Id": 3,
+     "UnitPrice": "12.3500",
+     "Amount": "86.4500",
+     "DiscountShare": "1.9900",
+     "PayerAmount": "0.0000",
+     "Qty": 7
+    },
+    {
+     "Id": 4,
+     "UnitPrice": "0.0500",
+     "Amount": "0.1500",
+     "DiscountShare": "0.0100",
+     "PayerAmount": "0.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 5,
+     "UnitPrice": "99.9900",
+     "Amount": "299.9700",
+     "DiscountShare": "10.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 6,
+     "UnitPrice": "12.3500",
+     "Amount": "61.7500",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 5
+    },
+    {
+     "Id": 7,
+     "UnitPrice": "12.3500",
+     "Amount": "-61.7500",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 5
+    },
+    {
+     "Id": 8,
+     "UnitPrice": "18.0000",
+     "Amount": "54.0000",
+     "DiscountShare": "0.9600",
+     "PayerAmount": "0.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 9,
+     "UnitPrice": "85.0000",
+     "Amount": "170.0000",
+     "DiscountShare": "3.0400",
+     "PayerAmount": "0.0000",
+     "Qty": 2
+    },
+    {
+     "Id": 10,
+     "UnitPrice": "18.0000",
+     "Amount": "-17.6800",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 1
+    },
+    {
+     "Id": 11,
+     "UnitPrice": "18.0000",
+     "Amount": "-35.3600",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 2
+    },
+    {
+     "Id": 12,
+     "UnitPrice": "126.0000",
+     "Amount": "252.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 2
+    },
+    {
+     "Id": 13,
+     "UnitPrice": "29.1600",
+     "Amount": "58.3200",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "29.1600",
+     "Qty": 3
+    },
+    {
+     "Id": 14,
+     "UnitPrice": "87.4900",
+     "Amount": "58.3300",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "29.1600",
+     "Qty": 1
+    },
+    {
+     "Id": 15,
+     "UnitPrice": "30.8300",
+     "Amount": "0.0000",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "92.4900",
+     "Qty": 3
+    },
+    {
+     "Id": 16,
+     "UnitPrice": "87.4900",
+     "Amount": "116.6600",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "58.3200",
+     "Qty": 2
+    },
+    {
+     "Id": 17,
+     "UnitPrice": "87.4900",
+     "Amount": "-116.6600",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "-58.3200",
+     "Qty": 2
+    },
+    {
+     "Id": 18,
+     "UnitPrice": "99.9900",
+     "Amount": "149.9700",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "150.0000",
+     "Qty": 3
+    },
+    {
+     "Id": 19,
+     "UnitPrice": "219.2300",
+     "Amount": "219.2300",
+     "DiscountShare": "0.0000",
+     "PayerAmount": "0.0000",
+     "Qty": 1
+    },
+    {
+     "Id": 20,
+     "UnitPrice": "33.3300",
+     "Amount": "66.6600",
+     "DiscountShare": "1.9200",
+     "PayerAmount": "0.0000",
+     "Qty": 2
+    },
+    {
+     "Id": 21,
+     "UnitPrice": "12.3500",
+     "Amount": "37.0500",
+     "DiscountShare": "1.0800",
+     "PayerAmount": "0.0000",
+     "Qty": 3
+    }
+   ]
+  },
+  "Receipts": {
+   "count": 22,
+   "sums": {
+    "Gross": 70670000,
+    "Discount": 1190000,
+    "Net": 69480000,
+    "Cash": 68180000,
+    "Card": 700000,
+    "Credit": 600000
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Gross": "199.9800",
+     "Discount": "0.0000",
+     "Net": "199.9800",
+     "Cash": "149.9800",
+     "Card": "50.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 1
+    },
+    {
+     "Id": 2,
+     "Gross": "86.6000",
+     "Discount": "2.0000",
+     "Net": "84.6000",
+     "Cash": "74.6000",
+     "Card": "0.0000",
+     "Credit": "10.0000",
+     "Kind": "payment",
+     "ReceiptNo": 2
+    },
+    {
+     "Id": 3,
+     "Gross": "299.9700",
+     "Discount": "10.0000",
+     "Net": "289.9700",
+     "Cash": "289.9700",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 3
+    },
+    {
+     "Id": 4,
+     "Gross": "61.7500",
+     "Discount": "0.0000",
+     "Net": "61.7500",
+     "Cash": "61.7500",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 4
+    },
+    {
+     "Id": 5,
+     "Gross": "-61.7500",
+     "Discount": "0.0000",
+     "Net": "-61.7500",
+     "Cash": "-61.7500",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "refund",
+     "ReceiptNo": 5
+    },
+    {
+     "Id": 6,
+     "Gross": "224.0000",
+     "Discount": "4.0000",
+     "Net": "220.0000",
+     "Cash": "220.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 6
+    },
+    {
+     "Id": 7,
+     "Gross": "-17.6800",
+     "Discount": "0.0000",
+     "Net": "-17.6800",
+     "Cash": "-17.6800",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "refund",
+     "ReceiptNo": 7
+    },
+    {
+     "Id": 8,
+     "Gross": "-35.3600",
+     "Discount": "0.0000",
+     "Net": "-35.3600",
+     "Cash": "-35.3600",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "refund",
+     "ReceiptNo": 8
+    },
+    {
+     "Id": 9,
+     "Gross": "252.0000",
+     "Discount": "0.0000",
+     "Net": "252.0000",
+     "Cash": "252.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 9
+    },
+    {
+     "Id": 10,
+     "Gross": "116.6500",
+     "Discount": "0.0000",
+     "Net": "116.6500",
+     "Cash": "116.6500",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 10
+    },
+    {
+     "Id": 11,
+     "Gross": "0.0000",
+     "Discount": "0.0000",
+     "Net": "0.0000",
+     "Cash": "0.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 11
+    },
+    {
+     "Id": 12,
+     "Gross": "116.6600",
+     "Discount": "0.0000",
+     "Net": "116.6600",
+     "Cash": "116.6600",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 12
+    },
+    {
+     "Id": 13,
+     "Gross": "-116.6600",
+     "Discount": "0.0000",
+     "Net": "-116.6600",
+     "Cash": "-116.6600",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "refund",
+     "ReceiptNo": 13
+    },
+    {
+     "Id": 14,
+     "Gross": "149.9700",
+     "Discount": "0.0000",
+     "Net": "149.9700",
+     "Cash": "149.9700",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 14
+    },
+    {
+     "Id": 15,
+     "Gross": "219.2300",
+     "Discount": "0.0000",
+     "Net": "219.2300",
+     "Cash": "219.2300",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 15
+    },
+    {
+     "Id": 16,
+     "Gross": "-109.6200",
+     "Discount": "0.0000",
+     "Net": "-109.6200",
+     "Cash": "-109.6200",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "return",
+     "ReceiptNo": 16
+    },
+    {
+     "Id": 17,
+     "Gross": "103.7100",
+     "Discount": "3.0000",
+     "Net": "100.7100",
+     "Cash": "80.7100",
+     "Card": "20.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 17
+    },
+    {
+     "Id": 18,
+     "Gross": "3000.0000",
+     "Discount": "0.0000",
+     "Net": "3000.0000",
+     "Cash": "3000.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "deposit",
+     "ReceiptNo": 18
+    },
+    {
+     "Id": 19,
+     "Gross": "333.0000",
+     "Discount": "0.0000",
+     "Net": "333.0000",
+     "Cash": "333.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "payment",
+     "ReceiptNo": 19
+    },
+    {
+     "Id": 20,
+     "Gross": "1607.5000",
+     "Discount": "100.0000",
+     "Net": "1507.5000",
+     "Cash": "1457.5000",
+     "Card": "0.0000",
+     "Credit": "50.0000",
+     "Kind": "final",
+     "ReceiptNo": 20
+    },
+    {
+     "Id": 21,
+     "Gross": "3000.0000",
+     "Discount": "0.0000",
+     "Net": "3000.0000",
+     "Cash": "3000.0000",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "deposit",
+     "ReceiptNo": 21
+    },
+    {
+     "Id": 22,
+     "Gross": "-2362.9500",
+     "Discount": "0.0000",
+     "Net": "-2362.9500",
+     "Cash": "-2362.9500",
+     "Card": "0.0000",
+     "Credit": "0.0000",
+     "Kind": "return",
+     "ReceiptNo": 22
+    }
+   ]
+  },
+  "RoomClasses": {
+   "count": 6,
+   "sums": {
+    "NightPrice": 112500000,
+    "Deposit": 510000000
+   }
+  },
+  "ServicePrices": {
+   "count": 50,
+   "sums": {
+    "Price": 529512700
+   }
+  },
+  "Shifts": {
+   "count": 5,
+   "sums": {
+    "ExpectedCash": 807100,
+    "CountedCash": 757100,
+    "CardTotal": 200000
+   }
+  },
+  "StockBatches": {
+   "count": 6,
+   "sums": {
+    "Qty": 1540000,
+    "Cost": 1342858
+   }
+  },
+  "StockCountLines": {
+   "count": 0,
+   "sums": {
+    "SystemQty": 0,
+    "CountedQty": 0,
+    "Cost": 0
+   }
+  },
+  "StockCounts": {
+   "count": 0,
+   "sums": {
+    "DiffValue": 0
+   }
+  },
+  "StockItems": {
+   "count": 44,
+   "sums": {
+    "Price": 23785000,
+    "MinQty": 8250000,
+    "LastCost": 671429
+   }
+  },
+  "StockMoves": {
+   "count": 11,
+   "sums": {
+    "Qty": 1540000,
+    "Cost": 2014287
+   }
+  },
+  "StockWaste": {
+   "count": 0,
+   "sums": {
+    "Qty": 0,
+    "Cost": 0
+   }
+  },
+  "SupplierInvoices": {
+   "count": 1,
+   "sums": {
+    "Amount": 12345600
+   }
+  },
+  "SupplierPayments": {
+   "count": 0,
+   "sums": {
+    "Amount": 0
+   }
+  },
+  "Tickets": {
+   "count": 0,
+   "sums": {
+    "Total": 0
+   }
+  },
+  "TierCoverage": {
+   "count": 61,
+   "sums": {
+    "Pct": 48150000
+   }
+  },
+  "TransferLines": {
+   "count": 0,
+   "sums": {
+    "ReqQty": 0,
+    "IssuedQty": 0
+   }
+  },
+  "VisitItems": {
+   "count": 18,
+   "sums": {
+    "UnitPrice": 10992800,
+    "Amount": 22020000,
+    "DoctorPct": 3750000,
+    "PayerPct": 3299900,
+    "PayerAmount": 4687500,
+    "PatientAmount": 18428700,
+    "RefundDue": 0
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "UnitPrice": "33.3300",
+     "Amount": "99.9900",
+     "DoctorPct": "40.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "99.9900",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 3
+    },
+    {
+     "Id": 2,
+     "UnitPrice": "99.9900",
+     "Amount": "99.9900",
+     "DoctorPct": "30.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "99.9900",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 1
+    },
+    {
+     "Id": 3,
+     "UnitPrice": "12.3500",
+     "Amount": "86.4500",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "86.4500",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "lab",
+     "Qty": 7
+    },
+    {
+     "Id": 4,
+     "UnitPrice": "0.0500",
+     "Amount": "0.1500",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "0.1500",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "lab",
+     "Qty": 3
+    },
+    {
+     "Id": 5,
+     "UnitPrice": "99.9900",
+     "Amount": "299.9700",
+     "DoctorPct": "40.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "299.9700",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 3
+    },
+    {
+     "Id": 6,
+     "UnitPrice": "12.3500",
+     "Amount": "61.7500",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "61.7500",
+     "RefundDue": "0.0000",
+     "Status": "voided",
+     "Dept": "lab",
+     "Qty": 5
+    },
+    {
+     "Id": 7,
+     "UnitPrice": "18.0000",
+     "Amount": "54.0000",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "54.0000",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "supplies",
+     "Qty": 3
+    },
+    {
+     "Id": 8,
+     "UnitPrice": "85.0000",
+     "Amount": "170.0000",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "170.0000",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "drugs",
+     "Qty": 2
+    },
+    {
+     "Id": 9,
+     "UnitPrice": "126.0000",
+     "Amount": "252.0000",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "252.0000",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "drugs",
+     "Qty": 2
+    },
+    {
+     "Id": 10,
+     "UnitPrice": "29.1600",
+     "Amount": "87.4800",
+     "DoctorPct": "40.0000",
+     "PayerPct": "33.3300",
+     "PayerAmount": "29.1600",
+     "PatientAmount": "58.3200",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 3
+    },
+    {
+     "Id": 11,
+     "UnitPrice": "87.4900",
+     "Amount": "87.4900",
+     "DoctorPct": "40.0000",
+     "PayerPct": "33.3300",
+     "PayerAmount": "29.1600",
+     "PatientAmount": "58.3300",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 1
+    },
+    {
+     "Id": 12,
+     "UnitPrice": "30.8300",
+     "Amount": "92.4900",
+     "DoctorPct": "30.0000",
+     "PayerPct": "100.0000",
+     "PayerAmount": "92.4900",
+     "PatientAmount": "0.0000",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 3
+    },
+    {
+     "Id": 13,
+     "UnitPrice": "87.4900",
+     "Amount": "174.9800",
+     "DoctorPct": "40.0000",
+     "PayerPct": "33.3300",
+     "PayerAmount": "58.3200",
+     "PatientAmount": "116.6600",
+     "RefundDue": "0.0000",
+     "Status": "voided",
+     "Dept": "clinic",
+     "Qty": 2
+    },
+    {
+     "Id": 14,
+     "UnitPrice": "99.9900",
+     "Amount": "299.9700",
+     "DoctorPct": "40.0000",
+     "PayerPct": "80.0000",
+     "PayerAmount": "150.0000",
+     "PatientAmount": "149.9700",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 3
+    },
+    {
+     "Id": 15,
+     "UnitPrice": "219.2300",
+     "Amount": "219.2300",
+     "DoctorPct": "35.0000",
+     "PayerPct": "50.0000",
+     "PayerAmount": "109.6200",
+     "PatientAmount": "219.2300",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "radiology",
+     "Qty": 1
+    },
+    {
+     "Id": 16,
+     "UnitPrice": "33.3300",
+     "Amount": "66.6600",
+     "DoctorPct": "40.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "66.6600",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "clinic",
+     "Qty": 2
+    },
+    {
+     "Id": 17,
+     "UnitPrice": "12.3500",
+     "Amount": "37.0500",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "37.0500",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "lab",
+     "Qty": 3
+    },
+    {
+     "Id": 18,
+     "UnitPrice": "12.3500",
+     "Amount": "12.3500",
+     "DoctorPct": "0.0000",
+     "PayerPct": "0.0000",
+     "PayerAmount": "0.0000",
+     "PatientAmount": "12.3500",
+     "RefundDue": "0.0000",
+     "Status": "active",
+     "Dept": "lab",
+     "Qty": 1
+    }
+   ]
+  }
+ },
+ "byType": {
+  "receiptsByKind": {
+   "deposit": {
+    "count": 2,
+    "Gross": 60000000,
+    "Discount": 0,
+    "Net": 60000000,
+    "Cash": 60000000,
+    "Card": 0,
+    "Credit": 0
+   },
+   "final": {
+    "count": 1,
+    "Gross": 16075000,
+    "Discount": 1000000,
+    "Net": 15075000,
+    "Cash": 14575000,
+    "Card": 0,
+    "Credit": 500000
+   },
+   "payment": {
+    "count": 13,
+    "Gross": 21635200,
+    "Discount": 190000,
+    "Net": 21445200,
+    "Cash": 20645200,
+    "Card": 700000,
+    "Credit": 100000
+   },
+   "refund": {
+    "count": 4,
+    "Gross": -2314500,
+    "Discount": 0,
+    "Net": -2314500,
+    "Cash": -2314500,
+    "Card": 0,
+    "Credit": 0
+   },
+   "return": {
+    "count": 2,
+    "Gross": -24725700,
+    "Discount": 0,
+    "Net": -24725700,
+    "Cash": -24725700,
+    "Card": 0,
+    "Credit": 0
+   }
+  },
+  "receiptsBySign": {
+   "negative": {
+    "count": 6,
+    "Gross": -27040200,
+    "Discount": 0,
+    "Net": -27040200,
+    "Cash": -27040200,
+    "Card": 0,
+    "Credit": 0
+   },
+   "positive": {
+    "count": 15,
+    "Gross": 97710200,
+    "Discount": 1190000,
+    "Net": 96520200,
+    "Cash": 95220200,
+    "Card": 700000,
+    "Credit": 600000
+   },
+   "zero": {
+    "count": 1,
+    "Gross": 0,
+    "Discount": 0,
+    "Net": 0,
+    "Cash": 0,
+    "Card": 0,
+    "Credit": 0
+   }
+  },
+  "payOrdersByKindStatus": {
+   "visit/cancelled": {
+    "count": 1,
+    "Amount": 123500,
+    "Credit": 0,
+    "Discount": 0
+   },
+   "visit/done": {
+    "count": 1,
+    "Amount": 1007100,
+    "Credit": 0,
+    "Discount": 30000
+   }
+  },
+  "visitItemsByDept": {
+   "clinic/active": {
+    "count": 8,
+    "UnitPrice": 5141100,
+    "Amount": 11340400,
+    "DoctorPct": 3000000
+   },
+   "clinic/voided": {
+    "count": 1,
+    "UnitPrice": 874900,
+    "Amount": 1749800,
+    "DoctorPct": 400000
+   },
+   "drugs/active": {
+    "count": 2,
+    "UnitPrice": 2110000,
+    "Amount": 4220000,
+    "DoctorPct": 0
+   },
+   "lab/active": {
+    "count": 4,
+    "UnitPrice": 371000,
+    "Amount": 1360000,
+    "DoctorPct": 0
+   },
+   "lab/voided": {
+    "count": 1,
+    "UnitPrice": 123500,
+    "Amount": 617500,
+    "DoctorPct": 0
+   },
+   "radiology/active": {
+    "count": 1,
+    "UnitPrice": 2192300,
+    "Amount": 2192300,
+    "DoctorPct": 350000
+   },
+   "supplies/active": {
+    "count": 1,
+    "UnitPrice": 180000,
+    "Amount": 540000,
+    "DoctorPct": 0
+   }
+  },
+  "admissionItemsByDept": {
+   "lab/active": {
+    "count": 2,
+    "UnitPrice": 247000,
+    "Amount": 12720500,
+    "DoctorPct": 0
+   },
+   "radiology/active": {
+    "count": 1,
+    "UnitPrice": 2505500,
+    "Amount": 25055000,
+    "DoctorPct": 350000
+   },
+   "ward/active": {
+    "count": 3,
+    "UnitPrice": 15000000,
+    "Amount": 18000000,
+    "DoctorPct": 400000
+   }
+  },
+  "doctorEarningsBySign": {
+   "negative": {
+    "count": 1,
+    "BaseAmount": -1749800,
+    "Amount": -699900
+   },
+   "positive": {
+    "count": 12,
+    "BaseAmount": 45589600,
+    "Amount": 16706500
+   }
+  },
+  "payerLedgerBySign": {
+   "charge": {
+    "count": 6,
+    "FullAmount": 9616400,
+    "Amount": 4687500
+   },
+   "reversal": {
+    "count": 1,
+    "FullAmount": -1749800,
+    "Amount": -583200
+   }
+  },
+  "claims": {
+   "partial": {
+    "count": 3,
+    "Total": 4104300,
+    "Paid": 1368100,
+    "Rejected": 0
+   }
+  },
+  "doctorPayouts": {
+   "issued": {
+    "count": 3,
+    "Gross": 14895900,
+    "Tax": 744800,
+    "Net": 14151100
+   }
+  },
+  "vouchers": {
+   "payout/pending": {
+    "count": 3,
+    "Amount": 14151100
+   }
+  },
+  "supplierInvoices": {
+   "open": {
+    "count": 1,
+    "Amount": 12345600
+   }
+  },
+  "expenses": {
+   "pending": {
+    "count": 1,
+    "Amount": 7502500
+   }
+  },
+  "stockMoves": {
+   "opening": {
+    "count": 6,
+    "Qty": 1840000,
+    "Cost": 1342858
+   },
+   "sale": {
+    "count": 1,
+    "Qty": -280000,
+    "Cost": 71429
+   },
+   "visit": {
+    "count": 2,
+    "Qty": -50000,
+    "Cost": 600000
+   },
+   "visit_back": {
+    "count": 2,
+    "Qty": 30000,
+    "Cost": 0
+   }
+  }
+ },
+ "reports": {
+  "treasury": {
+   "totals": {
+    "count": "16.0000",
+    "cash": "6818.0000",
+    "card": "70.0000",
+    "credit": "60.0000",
+    "discount": "119.0000",
+    "net": "6948.0000",
+    "out": "2704.0200"
+   },
+   "sections": [
+    {
+     "key": "clinic",
+     "name": "العيادات",
+     "totals": {
+      "count": "7.0000",
+      "cash": "787.2800",
+      "card": "70.0000",
+      "credit": "0.0000",
+      "discount": "13.0000",
+      "net": "857.2800",
+      "out": "116.6600"
+     },
+     "rows": [
+      {
+       "no": 1,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "199.9800",
+       "cash": "149.9800",
+       "card": "50.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 3,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "10.0000",
+       "net": "289.9700",
+       "cash": "289.9700",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 10,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "116.6500",
+       "cash": "116.6500",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 11,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "0.0000",
+       "cash": "0.0000",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 12,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "116.6600",
+       "cash": "116.6600",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 13,
+       "kind": "refund",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "-116.6600",
+       "cash": "-116.6600",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 14,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "149.9700",
+       "cash": "149.9700",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 17,
+       "kind": "payment",
+       "manualNo": "B-1",
+       "gross": null,
+       "discount": "3.0000",
+       "net": "100.7100",
+       "cash": "80.7100",
+       "card": "20.0000",
+       "credit": "0.0000"
+      }
+     ]
+    },
+    {
+     "key": "emergency",
+     "name": "الطوارئ",
+     "totals": {
+      "count": "1.0000",
+      "cash": "166.9600",
+      "card": "0.0000",
+      "credit": "0.0000",
+      "discount": "4.0000",
+      "net": "166.9600",
+      "out": "53.0400"
+     },
+     "rows": [
+      {
+       "no": 6,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "4.0000",
+       "net": "220.0000",
+       "cash": "220.0000",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 7,
+       "kind": "refund",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "-17.6800",
+       "cash": "-17.6800",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 8,
+       "kind": "refund",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "-35.3600",
+       "cash": "-35.3600",
+       "card": "0.0000",
+       "credit": "0.0000"
+      }
+     ]
+    },
+    {
+     "key": "lab",
+     "name": "المعمل",
+     "totals": {
+      "count": "2.0000",
+      "cash": "74.6000",
+      "card": "0.0000",
+      "credit": "10.0000",
+      "discount": "2.0000",
+      "net": "84.6000",
+      "out": "61.7500"
+     },
+     "rows": [
+      {
+       "no": 2,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "2.0000",
+       "net": "84.6000",
+       "cash": "74.6000",
+       "card": "0.0000",
+       "credit": "10.0000"
+      },
+      {
+       "no": 4,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "61.7500",
+       "cash": "61.7500",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 5,
+       "kind": "refund",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "-61.7500",
+       "cash": "-61.7500",
+       "card": "0.0000",
+       "credit": "0.0000"
+      }
+     ]
+    },
+    {
+     "key": "radiology",
+     "name": "الأشعة",
+     "totals": {
+      "count": "1.0000",
+      "cash": "109.6100",
+      "card": "0.0000",
+      "credit": "0.0000",
+      "discount": "0.0000",
+      "net": "109.6100",
+      "out": "109.6200"
+     },
+     "rows": [
+      {
+       "no": 15,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "219.2300",
+       "cash": "219.2300",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 16,
+       "kind": "return",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "-109.6200",
+       "cash": "-109.6200",
+       "card": "0.0000",
+       "credit": "0.0000"
+      }
+     ]
+    },
+    {
+     "key": "pharmacy",
+     "name": "الصيدلية",
+     "totals": {
+      "count": "1.0000",
+      "cash": "252.0000",
+      "card": "0.0000",
+      "credit": "0.0000",
+      "discount": "0.0000",
+      "net": "252.0000",
+      "out": "0.0000"
+     },
+     "rows": [
+      {
+       "no": 9,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "252.0000",
+       "cash": "252.0000",
+       "card": "0.0000",
+       "credit": "0.0000"
+      }
+     ]
+    },
+    {
+     "key": "inpatient",
+     "name": "داخلي",
+     "totals": {
+      "count": "4.0000",
+      "cash": "5427.5500",
+      "card": "0.0000",
+      "credit": "50.0000",
+      "discount": "100.0000",
+      "net": "5477.5500",
+      "out": "2362.9500"
+     },
+     "rows": [
+      {
+       "no": 18,
+       "kind": "deposit",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "3000.0000",
+       "cash": "3000.0000",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 19,
+       "kind": "payment",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "333.0000",
+       "cash": "333.0000",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 20,
+       "kind": "final",
+       "manualNo": null,
+       "gross": null,
+       "discount": "100.0000",
+       "net": "1507.5000",
+       "cash": "1457.5000",
+       "card": "0.0000",
+       "credit": "50.0000"
+      },
+      {
+       "no": 21,
+       "kind": "deposit",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "3000.0000",
+       "cash": "3000.0000",
+       "card": "0.0000",
+       "credit": "0.0000"
+      },
+      {
+       "no": 22,
+       "kind": "return",
+       "manualNo": null,
+       "gross": null,
+       "discount": "0.0000",
+       "net": "-2362.9500",
+       "cash": "-2362.9500",
+       "card": "0.0000",
+       "credit": "0.0000"
+      }
+     ]
+    }
+   ]
+  },
+  "payers": {
+   "جهة أساسية خصم 12.5": {
+    "payer": {
+     "id": "4.0000",
+     "name": "جهة أساسية خصم 12.5"
+    },
+    "from": "2026-11-01",
+    "to": "2026-11-20",
+    "rows": [
+     {
+      "id": "1.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 5 علي",
+       "no": "5.0000"
+      },
+      "cardNo": "C4",
+      "description": "بند أساسي 33.33",
+      "full": "87.4800",
+      "amount": "29.1600",
+      "approvalNo": null,
+      "reversal": false
+     },
+     {
+      "id": "2.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 5 علي",
+       "no": "5.0000"
+      },
+      "cardNo": "C4",
+      "description": "بند أساسي 99.99",
+      "full": "87.4900",
+      "amount": "29.1600",
+      "approvalNo": null,
+      "reversal": false
+     },
+     {
+      "id": "4.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 7 علي",
+       "no": "7.0000"
+      },
+      "cardNo": "C1X",
+      "description": "بند أساسي 99.99",
+      "full": "174.9800",
+      "amount": "58.3200",
+      "approvalNo": null,
+      "reversal": false
+     },
+     {
+      "id": "5.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 7 علي",
+       "no": "7.0000"
+      },
+      "cardNo": "C1X",
+      "description": "إلغاء: بند أساسي 99.99",
+      "full": "-174.9800",
+      "amount": "-58.3200",
+      "approvalNo": null,
+      "reversal": true
+     },
+     {
+      "id": "7.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 9 علي",
+       "no": "9.0000"
+      },
+      "cardNo": "C1R",
+      "description": "بند أساسي أشعة 250.55",
+      "full": "219.2300",
+      "amount": "109.6200",
+      "approvalNo": "BASE-1",
+      "reversal": false
+     }
+    ],
+    "totals": {
+     "amount": "167.9400",
+     "patients": "3.0000",
+     "lines": "5.0000"
+    }
+   },
+   "جهة أساسية قائمة 80": {
+    "payer": {
+     "id": "5.0000",
+     "name": "جهة أساسية قائمة 80"
+    },
+    "from": "2026-11-01",
+    "to": "2026-11-20",
+    "rows": [
+     {
+      "id": "6.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 8 علي",
+       "no": "8.0000"
+      },
+      "cardNo": "C2",
+      "description": "بند أساسي 99.99",
+      "full": "299.9700",
+      "amount": "150.0000",
+      "approvalNo": null,
+      "reversal": false
+     }
+    ],
+    "totals": {
+     "amount": "150.0000",
+     "patients": "1.0000",
+     "lines": "1.0000"
+    }
+   },
+   "جهة أساسية خصم 7.5": {
+    "payer": {
+     "id": "6.0000",
+     "name": "جهة أساسية خصم 7.5"
+    },
+    "from": "2026-11-01",
+    "to": "2026-11-20",
+    "rows": [
+     {
+      "id": "3.0000",
+      "patient": {
+       "name": "مريض أساسي رقم 6 علي",
+       "no": "6.0000"
+      },
+      "cardNo": "C6",
+      "description": "بند أساسي 33.33",
+      "full": "92.4900",
+      "amount": "92.4900",
+      "approvalNo": null,
+      "reversal": false
+     }
+    ],
+    "totals": {
+     "amount": "92.4900",
+     "patients": "1.0000",
+     "lines": "1.0000"
+    }
+   }
+  }
+ },
+ "known": [
+  {
+   "name": "تغطية جهة «جهة أساسية خصم 12.5» من الـAPI",
+   "saved": 0,
+   "sent": 5
+  },
+  {
+   "name": "تغطية جهة «جهة أساسية قائمة 80» من الـAPI",
+   "saved": 0,
+   "sent": 5
+  },
+  {
+   "name": "تغطية جهة «جهة أساسية خصم 7.5» من الـAPI",
+   "saved": 0,
+   "sent": 5
+  },
+  {
+   "name": "خصم كسري 1.17 على إجمالي 86.6000",
+   "status": 500
+  }
+ ],
+ "rounding": {
+  "half": {
+   "0.5": 1,
+   "1.5": 2,
+   "2.5": 3,
+   "-0.5": 0,
+   "-1.5": -1,
+   "-2.5": -2,
+   "0.49999": 0,
+   "2.675": 3
+  },
+  "discount": [
+   {
+    "cents": 3333,
+    "pct": 12.5,
+    "result": 2916
+   },
+   {
+    "cents": 9999,
+    "pct": 12.5,
+    "result": 8749
+   },
+   {
+    "cents": 3333,
+    "pct": 7.5,
+    "result": 3083
+   },
+   {
+    "cents": 1235,
+    "pct": 33.33,
+    "result": 823
+   },
+   {
+    "cents": 5,
+    "pct": 12.5,
+    "result": 4
+   },
+   {
+    "cents": 25055,
+    "pct": 50,
+    "result": 12528
+   },
+   {
+    "cents": 1,
+    "pct": 50,
+    "result": 1
+   },
+   {
+    "cents": 3,
+    "pct": 50,
+    "result": 2
+   },
+   {
+    "cents": 33,
+    "pct": 50,
+    "result": 17
+   },
+   {
+    "cents": 10001,
+    "pct": 33.33,
+    "result": 6668
+   },
+   {
+    "cents": 9999,
+    "pct": 66.67,
+    "result": 3333
+   }
+  ],
+  "share": [
+   {
+    "cents": 8748,
+    "pct": 40,
+    "result": 3499
+   },
+   {
+    "cents": 2916,
+    "pct": 40,
+    "result": 1166
+   },
+   {
+    "cents": 3333,
+    "pct": 33.33,
+    "result": 1111
+   },
+   {
+    "cents": 3333,
+    "pct": 66.67,
+    "result": 2222
+   },
+   {
+    "cents": 1,
+    "pct": 50,
+    "result": 1
+   },
+   {
+    "cents": 5,
+    "pct": 50,
+    "result": 3
+   },
+   {
+    "cents": 1235,
+    "pct": 12.5,
+    "result": 154
+   },
+   {
+    "cents": 9999,
+    "pct": 80,
+    "result": 7999
+   }
+  ],
+  "back": [
+   {
+    "paid": 29996,
+    "qty": 1,
+    "of": 3,
+    "result": 9999
+   },
+   {
+    "paid": 29996,
+    "qty": 2,
+    "of": 3,
+    "result": 19997
+   },
+   {
+    "paid": 29996,
+    "qty": 3,
+    "of": 3,
+    "result": 29996
+   },
+   {
+    "paid": 10,
+    "qty": 1,
+    "of": 3,
+    "result": 3
+   },
+   {
+    "paid": 5,
+    "qty": 1,
+    "of": 2,
+    "result": 3
+   },
+   {
+    "paid": 1,
+    "qty": 1,
+    "of": 3,
+    "result": 0
+   },
+   {
+    "paid": 100,
+    "qty": 2,
+    "of": 3,
+    "result": 67
+   }
+  ],
+  "negativeHalf": {
+   "Math.round(-2.5)": -2,
+   "Math.round(2.5)": 3,
+   "Math.round(-0.5)": "-0"
+  }
+ },
+ "words": [
+  {
+   "minor": 0,
+   "words": "صفر جنيه"
+  },
+  {
+   "minor": 1,
+   "words": "فقط قرش واحد لا غير"
+  },
+  {
+   "minor": 2,
+   "words": "فقط قرشان لا غير"
+  },
+  {
+   "minor": 5,
+   "words": "فقط خمسة قروش لا غير"
+  },
+  {
+   "minor": 10,
+   "words": "فقط عشرة قروش لا غير"
+  },
+  {
+   "minor": 11,
+   "words": "فقط أحد عشر قرشًا لا غير"
+  },
+  {
+   "minor": 100,
+   "words": "فقط جنيه واحد لا غير"
+  },
+  {
+   "minor": 101,
+   "words": "فقط جنيه واحد وقرش واحد لا غير"
+  },
+  {
+   "minor": 102,
+   "words": "فقط جنيه واحد وقرشان لا غير"
+  },
+  {
+   "minor": 1000,
+   "words": "فقط عشرة جنيهات لا غير"
+  },
+  {
+   "minor": 3333,
+   "words": "فقط ثلاثة وثلاثون جنيهًا وثلاثة وثلاثون قرشًا لا غير"
+  },
+  {
+   "minor": 9999,
+   "words": "فقط تسعة وتسعون جنيهًا وتسعة وتسعون قرشًا لا غير"
+  },
+  {
+   "minor": 25055,
+   "words": "فقط مائتان وخمسون جنيهًا وخمسة وخمسون قرشًا لا غير"
+  },
+  {
+   "minor": 123456,
+   "words": "فقط ألف ومائتان وأربعة وثلاثون جنيهًا وستة وخمسون قرشًا لا غير"
+  },
+  {
+   "minor": 100000,
+   "words": "فقط ألف جنيه لا غير"
+  },
+  {
+   "minor": 100001,
+   "words": "فقط ألف جنيه وقرش واحد لا غير"
+  },
+  {
+   "minor": 1234567,
+   "words": "فقط اثنا عشر ألف وثلاثمائة وخمسة وأربعون جنيهًا وسبعة وستون قرشًا لا غير"
+  },
+  {
+   "minor": 100000000,
+   "words": "فقط مليون جنيه لا غير"
+  }
+ ]
+}

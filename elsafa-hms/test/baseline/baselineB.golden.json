@@ -1,0 +1,1739 @@
+{
+ "_about": "خط أساسي B: مخازن ومشتريات وتحويلات وجرد وهالك وأقساط وسداد سندات. أي اختلاف غير مفسَّر = فشل المرحلة. اتولّد بـ test/baseline/recordB.js",
+ "_recordedWith": {
+  "node": "v22.23.5",
+  "app": "0.16.0",
+  "engine": "sqlite (in-memory)"
+ },
+ "steps": [
+  {
+   "name": "استلام مورد: أدوية بوحدة العلبة",
+   "status": 201
+  },
+  {
+   "name": "استلام مورد: مستلزمات بكسور",
+   "status": 201
+  },
+  {
+   "name": "رصيد أول المدة صيدلية",
+   "status": 201
+  },
+  {
+   "name": "استلام مستلزم في مخزن أدوية (مرفوض)",
+   "status": 400,
+   "err": "السطر 1: «كانيولا 20G» مستلزم و«مخزن الأدوية الرئيسي» مش بيشيله"
+  },
+  {
+   "name": "سعر سالب (مرفوض)",
+   "status": 400,
+   "err": "السطر 1: السعر مش صحيح"
+  },
+  {
+   "name": "تحويل طلب (صيدلية من الرئيسي)",
+   "status": 201
+  },
+  {
+   "name": "صرف التحويل (جزئي لسطر)",
+   "status": 200
+  },
+  {
+   "name": "استلام التحويل",
+   "status": 200
+  },
+  {
+   "name": "تأكيد التحويل",
+   "status": 200
+  },
+  {
+   "name": "تحويل مباشر بدون صلاحية (مرفوض)",
+   "status": 403,
+   "err": "التحويل المباشر محتاج صلاحية من المدير"
+  },
+  {
+   "name": "تحويل مباشر (مستلزمات للطوارئ) بصلاحية المدير",
+   "status": 201
+  },
+  {
+   "name": "تحويل للعناية (صرف بدون استلام)",
+   "status": 201
+  },
+  {
+   "name": "إلغاء تحويل بعد الصرف (الرصيد يرجع)",
+   "status": 200
+  },
+  {
+   "name": "تحويل أكبر من الرصيد (مرفوض)",
+   "status": 409,
+   "err": "الرصيد في «مخزن المستلزمات الرئيسي» مايكفيش لـ «جوانتي فحص»: الموجود 100 والمطلوب 2500"
+  },
+  {
+   "name": "إعدام 5 قرص تكلفة 7.1429",
+   "status": 201
+  },
+  {
+   "name": "إعدام 3.25 كيتورولاك تكلفة 2.6633",
+   "status": 201
+  },
+  {
+   "name": "إعدام أكبر من الرصيد (مرفوض)",
+   "status": 400,
+   "err": "الموجود من التشغيلة دي 26.75 بس"
+  },
+  {
+   "name": "حفظ عد الجرد",
+   "status": 200,
+   "lines": 4
+  },
+  {
+   "name": "تسليم الجرد",
+   "status": 200
+  },
+  {
+   "name": "اعتماد الجرد",
+   "status": 200
+  },
+  {
+   "name": "موردين",
+   "n": 0
+  },
+  {
+   "name": "فاتورة مورد مرتبطة باستلام",
+   "status": 201,
+   "billed": "772.6800"
+  },
+  {
+   "name": "دفعة نقدي على الفاتورة (إذن صرف)",
+   "status": 201
+  },
+  {
+   "name": "دفعة شيك",
+   "status": 201
+  },
+  {
+   "name": "دفعة أكبر من المتبقي (مرفوض)",
+   "status": 400,
+   "err": "المتبقي على الفاتورة 622.53 بس"
+  },
+  {
+   "name": "التزام 1000.01 على 3 أقساط",
+   "status": 201
+  },
+  {
+   "name": "التزام بأقساط يدوية",
+   "status": 201
+  },
+  {
+   "name": "تعديل قسط قبل الدفع",
+   "status": 200
+  },
+  {
+   "name": "دفع قسط نقدي (إذن صرف)",
+   "status": 200
+  },
+  {
+   "name": "دفع قسط بشيك",
+   "status": 200
+  },
+  {
+   "name": "دفع قسط يدوي نقدي",
+   "status": 200
+  },
+  {
+   "name": "دفع نفس القسط تاني (مرفوض)",
+   "status": 409,
+   "err": "القسط ده اتدفع قبل كده"
+  },
+  {
+   "name": "حذف التزام فيه أقساط مدفوعة (مرفوض)",
+   "status": 409,
+   "err": "فيه أقساط اتدفعت. مينفعش يتمسح"
+  },
+  {
+   "name": "إذونات معلّقة قبل الصرف",
+   "n": 3,
+   "total": "766.7600"
+  },
+  {
+   "name": "صرف إذن installment",
+   "status": 200,
+   "amount": "333.3300"
+  },
+  {
+   "name": "صرف إذن installment",
+   "status": 200,
+   "amount": "333.3300"
+  },
+  {
+   "name": "إلغاء إذن supplier",
+   "status": 200,
+   "amount": "100.1000"
+  },
+  {
+   "name": "إذونات معلّقة بعد الصرف",
+   "count": 0,
+   "amount": "0.0000",
+   "paid": 2
+  }
+ ],
+ "db": {
+  "Purchases": {
+   "count": 3,
+   "sums": {
+    "Total": 18209500
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Kind": "supplier",
+     "StoreId": 1,
+     "Total": "902.3700"
+    },
+    {
+     "Id": 2,
+     "Kind": "supplier",
+     "StoreId": 2,
+     "Total": "772.6800"
+    },
+    {
+     "Id": 3,
+     "Kind": "opening",
+     "StoreId": 3,
+     "Total": "145.9000"
+    }
+   ]
+  },
+  "PurchaseLines": {
+   "count": 12,
+   "sums": {
+    "Qty": 1045000,
+    "BaseQty": 9435000,
+    "UnitCost": 4612633,
+    "LineTotal": 18209500
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "PurchaseId": 1,
+     "ItemId": 1,
+     "UnitFactor": 10,
+     "Qty": "5.0000",
+     "BaseQty": "50.0000",
+     "UnitCost": "33.0000",
+     "LineTotal": "165.0000"
+    },
+    {
+     "Id": 2,
+     "PurchaseId": 1,
+     "ItemId": 1,
+     "UnitFactor": 1,
+     "Qty": "7.0000",
+     "BaseQty": "7.0000",
+     "UnitCost": "3.4500",
+     "LineTotal": "24.1500"
+    },
+    {
+     "Id": 3,
+     "PurchaseId": 1,
+     "ItemId": 43,
+     "UnitFactor": 14,
+     "Qty": "3.0000",
+     "BaseQty": "42.0000",
+     "UnitCost": "100.0000",
+     "LineTotal": "300.0000"
+    },
+    {
+     "Id": 4,
+     "PurchaseId": 1,
+     "ItemId": 43,
+     "UnitFactor": 7,
+     "Qty": "4.0000",
+     "BaseQty": "28.0000",
+     "UnitCost": "33.3300",
+     "LineTotal": "133.3200"
+    },
+    {
+     "Id": 5,
+     "PurchaseId": 1,
+     "ItemId": 6,
+     "UnitFactor": 3,
+     "Qty": "10.0000",
+     "BaseQty": "30.0000",
+     "UnitCost": "7.9900",
+     "LineTotal": "79.9000"
+    },
+    {
+     "Id": 6,
+     "PurchaseId": 1,
+     "ItemId": 5,
+     "UnitFactor": 12,
+     "Qty": "2.0000",
+     "BaseQty": "24.0000",
+     "UnitCost": "100.0000",
+     "LineTotal": "200.0000"
+    },
+    {
+     "Id": 7,
+     "PurchaseId": 2,
+     "ItemId": 25,
+     "UnitFactor": 50,
+     "Qty": "6.0000",
+     "BaseQty": "300.0000",
+     "UnitCost": "87.5000",
+     "LineTotal": "525.0000"
+    },
+    {
+     "Id": 8,
+     "PurchaseId": 2,
+     "ItemId": 28,
+     "UnitFactor": 100,
+     "Qty": "3.0000",
+     "BaseQty": "300.0000",
+     "UnitCost": "55.5500",
+     "LineTotal": "166.6500"
+    },
+    {
+     "Id": 9,
+     "PurchaseId": 2,
+     "ItemId": 31,
+     "UnitFactor": 50,
+     "Qty": "2.0000",
+     "BaseQty": "100.0000",
+     "UnitCost": "33.3300",
+     "LineTotal": "66.6600"
+    },
+    {
+     "Id": 10,
+     "PurchaseId": 2,
+     "ItemId": 32,
+     "UnitFactor": 1,
+     "Qty": "12.5000",
+     "BaseQty": "12.5000",
+     "UnitCost": "1.1500",
+     "LineTotal": "14.3700"
+    },
+    {
+     "Id": 11,
+     "PurchaseId": 3,
+     "ItemId": 1,
+     "UnitFactor": 1,
+     "Qty": "20.0000",
+     "BaseQty": "20.0000",
+     "UnitCost": "3.3000",
+     "LineTotal": "66.0000"
+    },
+    {
+     "Id": 12,
+     "PurchaseId": 3,
+     "ItemId": 6,
+     "UnitFactor": 1,
+     "Qty": "30.0000",
+     "BaseQty": "30.0000",
+     "UnitCost": "2.6633",
+     "LineTotal": "79.9000"
+    }
+   ]
+  },
+  "StockBatches": {
+   "count": 17,
+   "sums": {
+    "Qty": 9427500,
+    "Cost": 485996
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "ItemId": 1,
+     "StoreId": 1,
+     "BatchNo": "CF-1",
+     "Qty": "35.0000",
+     "Cost": "3.3000"
+    },
+    {
+     "Id": 2,
+     "ItemId": 1,
+     "StoreId": 1,
+     "BatchNo": "CF-2",
+     "Qty": "7.0000",
+     "Cost": "3.4500"
+    },
+    {
+     "Id": 3,
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchNo": "AM-1",
+     "Qty": "37.0000",
+     "Cost": "7.1429"
+    },
+    {
+     "Id": 4,
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchNo": "AM-2",
+     "Qty": "28.0000",
+     "Cost": "4.7614"
+    },
+    {
+     "Id": 5,
+     "ItemId": 6,
+     "StoreId": 1,
+     "BatchNo": "KT-1",
+     "Qty": "22.5000",
+     "Cost": "2.6633"
+    },
+    {
+     "Id": 6,
+     "ItemId": 5,
+     "StoreId": 1,
+     "BatchNo": null,
+     "Qty": "24.0000",
+     "Cost": "8.3333"
+    },
+    {
+     "Id": 7,
+     "ItemId": 25,
+     "StoreId": 2,
+     "BatchNo": null,
+     "Qty": "200.0000",
+     "Cost": "1.7500"
+    },
+    {
+     "Id": 8,
+     "ItemId": 28,
+     "StoreId": 2,
+     "BatchNo": null,
+     "Qty": "300.0000",
+     "Cost": "0.5555"
+    },
+    {
+     "Id": 9,
+     "ItemId": 31,
+     "StoreId": 2,
+     "BatchNo": null,
+     "Qty": "100.0000",
+     "Cost": "0.6666"
+    },
+    {
+     "Id": 10,
+     "ItemId": 32,
+     "StoreId": 2,
+     "BatchNo": null,
+     "Qty": "9.0000",
+     "Cost": "1.1500"
+    },
+    {
+     "Id": 11,
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchNo": "CF-P",
+     "Qty": "17.5000",
+     "Cost": "3.3000"
+    },
+    {
+     "Id": 12,
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchNo": "KT-P",
+     "Qty": "26.7500",
+     "Cost": "2.6633"
+    },
+    {
+     "Id": 13,
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchNo": "CF-1",
+     "Qty": "19.0000",
+     "Cost": "3.3000"
+    },
+    {
+     "Id": 14,
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchNo": "KT-1",
+     "Qty": "7.5000",
+     "Cost": "2.6633"
+    },
+    {
+     "Id": 15,
+     "ItemId": 25,
+     "StoreId": 12,
+     "BatchNo": null,
+     "Qty": "100.0000",
+     "Cost": "1.7500"
+    },
+    {
+     "Id": 16,
+     "ItemId": 32,
+     "StoreId": 12,
+     "BatchNo": null,
+     "Qty": "3.5000",
+     "Cost": "1.1500"
+    },
+    {
+     "Id": 17,
+     "ItemId": 7,
+     "StoreId": 3,
+     "BatchNo": "DC-9",
+     "Qty": "6.0000",
+     "Cost": null
+    }
+   ]
+  },
+  "StockMoves": {
+   "count": 27,
+   "sums": {
+    "Qty": 9427500,
+    "Cost": 881549
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Kind": "receive",
+     "ItemId": 1,
+     "StoreId": 1,
+     "BatchId": 1,
+     "Qty": "50.0000",
+     "Cost": "3.3000",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 2,
+     "Kind": "receive",
+     "ItemId": 1,
+     "StoreId": 1,
+     "BatchId": 2,
+     "Qty": "7.0000",
+     "Cost": "3.4500",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 3,
+     "Kind": "receive",
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchId": 3,
+     "Qty": "42.0000",
+     "Cost": "7.1429",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 4,
+     "Kind": "receive",
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchId": 4,
+     "Qty": "28.0000",
+     "Cost": "4.7614",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 5,
+     "Kind": "receive",
+     "ItemId": 6,
+     "StoreId": 1,
+     "BatchId": 5,
+     "Qty": "30.0000",
+     "Cost": "2.6633",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 6,
+     "Kind": "receive",
+     "ItemId": 5,
+     "StoreId": 1,
+     "BatchId": 6,
+     "Qty": "24.0000",
+     "Cost": "8.3333",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 7,
+     "Kind": "receive",
+     "ItemId": 25,
+     "StoreId": 2,
+     "BatchId": 7,
+     "Qty": "300.0000",
+     "Cost": "1.7500",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 8,
+     "Kind": "receive",
+     "ItemId": 28,
+     "StoreId": 2,
+     "BatchId": 8,
+     "Qty": "300.0000",
+     "Cost": "0.5555",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 9,
+     "Kind": "receive",
+     "ItemId": 31,
+     "StoreId": 2,
+     "BatchId": 9,
+     "Qty": "100.0000",
+     "Cost": "0.6666",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 10,
+     "Kind": "receive",
+     "ItemId": 32,
+     "StoreId": 2,
+     "BatchId": 10,
+     "Qty": "12.5000",
+     "Cost": "1.1500",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 11,
+     "Kind": "opening",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 11,
+     "Qty": "20.0000",
+     "Cost": "3.3000",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 12,
+     "Kind": "opening",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 12,
+     "Qty": "30.0000",
+     "Cost": "2.6633",
+     "RefType": "purchase"
+    },
+    {
+     "Id": 13,
+     "Kind": "transfer_out",
+     "ItemId": 1,
+     "StoreId": 1,
+     "BatchId": 1,
+     "Qty": "-15.0000",
+     "Cost": "3.3000",
+     "RefType": "trline"
+    },
+    {
+     "Id": 14,
+     "Kind": "transfer_out",
+     "ItemId": 6,
+     "StoreId": 1,
+     "BatchId": 5,
+     "Qty": "-7.5000",
+     "Cost": "2.6633",
+     "RefType": "trline"
+    },
+    {
+     "Id": 15,
+     "Kind": "transfer_in",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 13,
+     "Qty": "15.0000",
+     "Cost": "3.3000",
+     "RefType": "trin"
+    },
+    {
+     "Id": 16,
+     "Kind": "transfer_in",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 14,
+     "Qty": "7.5000",
+     "Cost": "2.6633",
+     "RefType": "trin"
+    },
+    {
+     "Id": 17,
+     "Kind": "transfer_out",
+     "ItemId": 25,
+     "StoreId": 2,
+     "BatchId": 7,
+     "Qty": "-100.0000",
+     "Cost": "1.7500",
+     "RefType": "trline"
+    },
+    {
+     "Id": 18,
+     "Kind": "transfer_out",
+     "ItemId": 32,
+     "StoreId": 2,
+     "BatchId": 10,
+     "Qty": "-3.5000",
+     "Cost": "1.1500",
+     "RefType": "trline"
+    },
+    {
+     "Id": 19,
+     "Kind": "transfer_in",
+     "ItemId": 25,
+     "StoreId": 12,
+     "BatchId": 15,
+     "Qty": "100.0000",
+     "Cost": "1.7500",
+     "RefType": "trin"
+    },
+    {
+     "Id": 20,
+     "Kind": "transfer_in",
+     "ItemId": 32,
+     "StoreId": 12,
+     "BatchId": 16,
+     "Qty": "3.5000",
+     "Cost": "1.1500",
+     "RefType": "trin"
+    },
+    {
+     "Id": 21,
+     "Kind": "transfer_out",
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchId": 3,
+     "Qty": "-21.0000",
+     "Cost": "7.1429",
+     "RefType": "trline"
+    },
+    {
+     "Id": 22,
+     "Kind": "transfer_in",
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchId": 3,
+     "Qty": "21.0000",
+     "Cost": "7.1429",
+     "RefType": "trline"
+    },
+    {
+     "Id": 23,
+     "Kind": "waste",
+     "ItemId": 43,
+     "StoreId": 1,
+     "BatchId": 3,
+     "Qty": "-5.0000",
+     "Cost": "7.1429",
+     "RefType": "waste"
+    },
+    {
+     "Id": 24,
+     "Kind": "waste",
+     "ItemId": 6,
+     "StoreId": 3,
+     "BatchId": 12,
+     "Qty": "-3.2500",
+     "Cost": "2.6633",
+     "RefType": "waste"
+    },
+    {
+     "Id": 25,
+     "Kind": "count",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 11,
+     "Qty": "-2.5000",
+     "Cost": "3.3000",
+     "RefType": "count"
+    },
+    {
+     "Id": 26,
+     "Kind": "count",
+     "ItemId": 1,
+     "StoreId": 3,
+     "BatchId": 13,
+     "Qty": "4.0000",
+     "Cost": "3.3000",
+     "RefType": "count"
+    },
+    {
+     "Id": 27,
+     "Kind": "count",
+     "ItemId": 7,
+     "StoreId": 3,
+     "BatchId": 17,
+     "Qty": "6.0000",
+     "Cost": null,
+     "RefType": "count"
+    }
+   ]
+  },
+  "StockItems": {
+   "count": 44,
+   "sums": {
+    "Price": 23785000,
+    "MinQty": 8250000,
+    "LastCost": 231801
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Name": "سيفترياكسون 1 جم",
+     "LastCost": "3.3000"
+    },
+    {
+     "Id": 2,
+     "Name": "سيفوتاكسيم 1 جم",
+     "LastCost": null
+    },
+    {
+     "Id": 3,
+     "Name": "أموكسيسيلين/كلافيولانيك 1.2 جم",
+     "LastCost": null
+    },
+    {
+     "Id": 4,
+     "Name": "ميترونيدازول 500 مجم محلول",
+     "LastCost": null
+    },
+    {
+     "Id": 5,
+     "Name": "باراسيتامول 1 جم محلول",
+     "LastCost": "8.3333"
+    },
+    {
+     "Id": 6,
+     "Name": "كيتورولاك 30 مجم",
+     "LastCost": "2.6633"
+    },
+    {
+     "Id": 7,
+     "Name": "ديكلوفيناك 75 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 8,
+     "Name": "أوميبرازول 40 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 9,
+     "Name": "رانيتيدين 50 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 10,
+     "Name": "أوندانسيترون 8 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 11,
+     "Name": "ميتوكلوبراميد 10 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 12,
+     "Name": "ديكساميثازون 8 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 13,
+     "Name": "هيدروكورتيزون 100 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 14,
+     "Name": "فوروسيميد 20 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 15,
+     "Name": "إينوكسابارين 40 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 16,
+     "Name": "هيبارين 5000 وحدة",
+     "LastCost": null
+    },
+    {
+     "Id": 17,
+     "Name": "إنسولين سريع",
+     "LastCost": null
+    },
+    {
+     "Id": 18,
+     "Name": "ترامادول 100 مجم",
+     "LastCost": null
+    },
+    {
+     "Id": 19,
+     "Name": "سالبيوتامول للنيبولايزر",
+     "LastCost": null
+    },
+    {
+     "Id": 20,
+     "Name": "محلول ملح 0.9% 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 21,
+     "Name": "محلول جلوكوز 5% 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 22,
+     "Name": "محلول رينجر 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 23,
+     "Name": "محلول جلوكوز ملح 500 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 24,
+     "Name": "ألبومين 20% 50 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 25,
+     "Name": "كانيولا 20G",
+     "LastCost": "1.7500"
+    },
+    {
+     "Id": 26,
+     "Name": "كانيولا 22G",
+     "LastCost": null
+    },
+    {
+     "Id": 27,
+     "Name": "جهاز محلول",
+     "LastCost": null
+    },
+    {
+     "Id": 28,
+     "Name": "سرنجة 5 مل",
+     "LastCost": "0.5555"
+    },
+    {
+     "Id": 29,
+     "Name": "سرنجة 10 مل",
+     "LastCost": null
+    },
+    {
+     "Id": 30,
+     "Name": "جوانتي معقم",
+     "LastCost": null
+    },
+    {
+     "Id": 31,
+     "Name": "جوانتي فحص",
+     "LastCost": "0.6666"
+    },
+    {
+     "Id": 32,
+     "Name": "شاش معقم",
+     "LastCost": "1.1500"
+    },
+    {
+     "Id": 33,
+     "Name": "قطن طبي 100 جم",
+     "LastCost": null
+    },
+    {
+     "Id": 34,
+     "Name": "بلاستر",
+     "LastCost": null
+    },
+    {
+     "Id": 35,
+     "Name": "قسطرة بولية فولي",
+     "LastCost": null
+    },
+    {
+     "Id": 36,
+     "Name": "كيس بول",
+     "LastCost": null
+    },
+    {
+     "Id": 37,
+     "Name": "أنبوبة رايل",
+     "LastCost": null
+    },
+    {
+     "Id": 38,
+     "Name": "ماسك أكسجين",
+     "LastCost": null
+    },
+    {
+     "Id": 39,
+     "Name": "ماسك نيبولايزر",
+     "LastCost": null
+    },
+    {
+     "Id": 40,
+     "Name": "رباط ضاغط",
+     "LastCost": null
+    },
+    {
+     "Id": 41,
+     "Name": "خيط جراحي فيكريل 2/0",
+     "LastCost": null
+    },
+    {
+     "Id": 42,
+     "Name": "إلكترود رسم قلب",
+     "LastCost": null
+    },
+    {
+     "Id": 43,
+     "Name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+     "LastCost": "4.7614"
+    },
+    {
+     "Id": 44,
+     "Name": "شاش رول طبي",
+     "LastCost": null
+    }
+   ]
+  },
+  "Transfers": {
+   "count": 3,
+   "sums": {},
+   "rows": [
+    {
+     "Id": 1,
+     "FromStoreId": 1,
+     "ToStoreId": 3,
+     "Status": "confirmed",
+     "Direct": 0
+    },
+    {
+     "Id": 2,
+     "FromStoreId": 2,
+     "ToStoreId": 12,
+     "Status": "confirmed",
+     "Direct": 1
+    },
+    {
+     "Id": 3,
+     "FromStoreId": 1,
+     "ToStoreId": 10,
+     "Status": "cancelled",
+     "Direct": 0
+    }
+   ]
+  },
+  "TransferLines": {
+   "count": 5,
+   "sums": {
+    "ReqQty": 1520000,
+    "IssuedQty": 1470000
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "TransferId": 1,
+     "ItemId": 1,
+     "ReqQty": "20.0000",
+     "IssuedQty": "15.0000"
+    },
+    {
+     "Id": 2,
+     "TransferId": 1,
+     "ItemId": 6,
+     "ReqQty": "7.5000",
+     "IssuedQty": "7.5000"
+    },
+    {
+     "Id": 3,
+     "TransferId": 2,
+     "ItemId": 25,
+     "ReqQty": "100.0000",
+     "IssuedQty": "100.0000"
+    },
+    {
+     "Id": 4,
+     "TransferId": 2,
+     "ItemId": 32,
+     "ReqQty": "3.5000",
+     "IssuedQty": "3.5000"
+    },
+    {
+     "Id": 5,
+     "TransferId": 3,
+     "ItemId": 43,
+     "ReqQty": "21.0000",
+     "IssuedQty": "21.0000"
+    }
+   ]
+  },
+  "StockWaste": {
+   "count": 2,
+   "sums": {
+    "Qty": 82500,
+    "Cost": 98062
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "StoreId": 1,
+     "ItemId": 43,
+     "BatchId": 3,
+     "Qty": "5.0000",
+     "Cost": "7.1429"
+    },
+    {
+     "Id": 2,
+     "StoreId": 3,
+     "ItemId": 6,
+     "BatchId": 12,
+     "Qty": "3.2500",
+     "Cost": "2.6633"
+    }
+   ]
+  },
+  "StockCounts": {
+   "count": 1,
+   "sums": {
+    "DiffValue": 49500
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "StoreId": 3,
+     "Status": "approved",
+     "DiffValue": "4.9500"
+    }
+   ]
+  },
+  "StockCountLines": {
+   "count": 5,
+   "sums": {
+    "SystemQty": 692500,
+    "CountedQty": 767500,
+    "Cost": 119266
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "CountId": 1,
+     "ItemId": 1,
+     "BatchId": 11,
+     "SystemQty": "20.0000",
+     "CountedQty": "17.5000",
+     "Cost": "3.3000"
+    },
+    {
+     "Id": 2,
+     "CountId": 1,
+     "ItemId": 1,
+     "BatchId": 13,
+     "SystemQty": "15.0000",
+     "CountedQty": "19.0000",
+     "Cost": "3.3000"
+    },
+    {
+     "Id": 3,
+     "CountId": 1,
+     "ItemId": 6,
+     "BatchId": 12,
+     "SystemQty": "26.7500",
+     "CountedQty": "26.7500",
+     "Cost": "2.6633"
+    },
+    {
+     "Id": 4,
+     "CountId": 1,
+     "ItemId": 6,
+     "BatchId": 14,
+     "SystemQty": "7.5000",
+     "CountedQty": "7.5000",
+     "Cost": "2.6633"
+    },
+    {
+     "Id": 5,
+     "CountId": 1,
+     "ItemId": 7,
+     "BatchId": null,
+     "SystemQty": "0.0000",
+     "CountedQty": "6.0000",
+     "Cost": null
+    }
+   ]
+  },
+  "Obligations": {
+   "count": 2,
+   "sums": {},
+   "rows": [
+    {
+     "Id": 1,
+     "Name": "التزام أساسي 1000.01 على 3",
+     "Active": 1
+    },
+    {
+     "Id": 2,
+     "Name": "التزام أساسي يدوي",
+     "Active": 1
+    }
+   ]
+  },
+  "ObligationInstallments": {
+   "count": 6,
+   "sums": {
+    "Amount": 25679200
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "ObligationId": 1,
+     "No": 1,
+     "Amount": "333.3300",
+     "Status": "paid",
+     "Method": "cash",
+     "VoucherId": 2
+    },
+    {
+     "Id": 2,
+     "ObligationId": 1,
+     "No": 2,
+     "Amount": "333.3400",
+     "Status": "paid",
+     "Method": "cheque",
+     "VoucherId": null
+    },
+    {
+     "Id": 3,
+     "ObligationId": 1,
+     "No": 3,
+     "Amount": "333.3500",
+     "Status": "due",
+     "Method": null,
+     "VoucherId": null
+    },
+    {
+     "Id": 4,
+     "ObligationId": 2,
+     "No": 1,
+     "Amount": "333.3300",
+     "Status": "paid",
+     "Method": "cash",
+     "VoucherId": 3
+    },
+    {
+     "Id": 5,
+     "ObligationId": 2,
+     "No": 2,
+     "Amount": "0.0700",
+     "Status": "due",
+     "Method": null,
+     "VoucherId": null
+    },
+    {
+     "Id": 6,
+     "ObligationId": 2,
+     "No": 3,
+     "Amount": "1234.5000",
+     "Status": "due",
+     "Method": null,
+     "VoucherId": null
+    }
+   ]
+  },
+  "CashVouchers": {
+   "count": 3,
+   "sums": {
+    "Amount": 7667600
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "Kind": "supplier",
+     "Status": "cancelled",
+     "Amount": "100.1000",
+     "RefId": 1,
+     "ShiftId": null
+    },
+    {
+     "Id": 2,
+     "Kind": "installment",
+     "Status": "paid",
+     "Amount": "333.3300",
+     "RefId": 1,
+     "ShiftId": 1
+    },
+    {
+     "Id": 3,
+     "Kind": "installment",
+     "Status": "paid",
+     "Amount": "333.3300",
+     "RefId": 4,
+     "ShiftId": 1
+    }
+   ]
+  },
+  "Suppliers": {
+   "count": 1,
+   "sums": {},
+   "rows": [
+    {
+     "Id": 1,
+     "Name": "مورد مخزن أساسي"
+    }
+   ]
+  },
+  "SupplierInvoices": {
+   "count": 1,
+   "sums": {
+    "Amount": 7726800
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "SupplierId": 1,
+     "PurchaseId": 2,
+     "Amount": "772.6800",
+     "Status": "open"
+    }
+   ]
+  },
+  "SupplierPayments": {
+   "count": 2,
+   "sums": {
+    "Amount": 1501500
+   },
+   "rows": [
+    {
+     "Id": 1,
+     "SupplierId": 1,
+     "InvoiceId": 1,
+     "Method": "cash",
+     "Amount": "100.1000",
+     "Status": "void",
+     "VoucherId": 1
+    },
+    {
+     "Id": 2,
+     "SupplierId": 1,
+     "InvoiceId": 1,
+     "Method": "cheque",
+     "Amount": "50.0500",
+     "Status": "ok",
+     "VoucherId": null
+    }
+   ]
+  }
+ },
+ "reports": {
+  "valuation": {
+   "byStore": {
+    "1": {
+     "qtyU4": 1535000,
+     "valueU8": 79717995000,
+     "noCostQty": 0
+    },
+    "2": {
+     "qtyU4": 6090000,
+     "valueU8": 59366000000,
+     "noCostQty": 0
+    },
+    "3": {
+     "qtyU4": 767500,
+     "valueU8": 21166802500,
+     "noCostQty": 60000
+    },
+    "12": {
+     "qtyU4": 1035000,
+     "valueU8": 17902500000,
+     "noCostQty": 0
+    }
+   },
+   "total": {
+    "qtyU4": 9427500,
+    "valueU8": 178153297500,
+    "noCostQty": 60000
+   }
+  },
+  "valueReport": {
+   "status": 200,
+   "body": {
+    "stores": [
+     {
+      "id": "1.0000",
+      "name": "مخزن الأدوية الرئيسي",
+      "kind": "main",
+      "kindName": "رئيسي",
+      "items": "4.0000",
+      "cost": "797.1800",
+      "sale": "6330.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "2.0000",
+      "name": "مخزن المستلزمات الرئيسي",
+      "kind": "main",
+      "kindName": "رئيسي",
+      "items": "4.0000",
+      "cost": "593.6600",
+      "sale": "4772.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "3.0000",
+      "name": "الصيدلية",
+      "kind": "pharmacy",
+      "kindName": "صيدلية",
+      "items": "3.0000",
+      "cost": "211.6700",
+      "sale": "3928.0000",
+      "noCost": "1.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "4.0000",
+      "name": "مخزن الدور 3",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "5.0000",
+      "name": "مخزن الدور 4",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "6.0000",
+      "name": "مخزن الدور 6",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "7.0000",
+      "name": "مخزن الدور 7",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "8.0000",
+      "name": "مخزن الدور 8",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "9.0000",
+      "name": "مخزن العمليات",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "10.0000",
+      "name": "مخزن العناية",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "11.0000",
+      "name": "مخزن الحضانة",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "12.0000",
+      "name": "مخزن الطوارئ",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "2.0000",
+      "cost": "179.0300",
+      "sale": "1828.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "13.0000",
+      "name": "مخزن العيادات",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "14.0000",
+      "name": "مخزن الأشعة",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     },
+     {
+      "id": "15.0000",
+      "name": "مخزن المعمل",
+      "kind": "sub",
+      "kindName": "فرعي",
+      "items": "0.0000",
+      "cost": "0.0000",
+      "sale": "0.0000",
+      "noCost": "0.0000",
+      "negative": "0.0000"
+     }
+    ],
+    "items": [
+     {
+      "id": "25.0000",
+      "name": "كانيولا 20G",
+      "code": "S-0001",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": "50.0000"
+       }
+      ],
+      "qty": "300.0000",
+      "cost": "525.0000",
+      "sale": "5400.0000"
+     },
+     {
+      "id": "43.0000",
+      "name": "أموكسيسيلين/كلافيولانيك 1 جم أقراص",
+      "code": "D-0025",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "قرص",
+        "factor": "1.0000"
+       },
+       {
+        "key": "mid",
+        "name": "شريط",
+        "factor": "7.0000"
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": "14.0000"
+       }
+      ],
+      "qty": "65.0000",
+      "cost": "397.6100",
+      "sale": "585.0000"
+     },
+     {
+      "id": "1.0000",
+      "name": "سيفترياكسون 1 جم",
+      "code": "D-0001",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "فيال",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": "10.0000"
+       }
+      ],
+      "qty": "78.5000",
+      "cost": "260.1000",
+      "sale": "6672.5000"
+     },
+     {
+      "id": "5.0000",
+      "name": "باراسيتامول 1 جم محلول",
+      "code": "D-0005",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "زجاجة",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "كرتونة",
+        "factor": "12.0000"
+       }
+      ],
+      "qty": "24.0000",
+      "cost": "200.0000",
+      "sale": "1680.0000"
+     },
+     {
+      "id": "28.0000",
+      "name": "سرنجة 5 مل",
+      "code": "S-0004",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "قطعة",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": "100.0000"
+       }
+      ],
+      "qty": "300.0000",
+      "cost": "166.6500",
+      "sale": "900.0000"
+     },
+     {
+      "id": "6.0000",
+      "name": "كيتورولاك 30 مجم",
+      "code": "D-0006",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": "3.0000"
+       }
+      ],
+      "qty": "56.7500",
+      "cost": "151.1400",
+      "sale": "1248.5000"
+     },
+     {
+      "id": "31.0000",
+      "name": "جوانتي فحص",
+      "code": "S-0007",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "جوز",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "علبة",
+        "factor": "50.0000"
+       }
+      ],
+      "qty": "100.0000",
+      "cost": "66.6600",
+      "sale": "200.0000"
+     },
+     {
+      "id": "32.0000",
+      "name": "شاش معقم",
+      "code": "S-0008",
+      "kind": "supply",
+      "units": [
+       {
+        "key": "base",
+        "name": "باكو",
+        "factor": "1.0000"
+       },
+       {
+        "key": "pack",
+        "name": "كرتونة",
+        "factor": "50.0000"
+       }
+      ],
+      "qty": "12.5000",
+      "cost": "14.3800",
+      "sale": "100.0000"
+     },
+     {
+      "id": "7.0000",
+      "name": "ديكلوفيناك 75 مجم",
+      "code": "D-0007",
+      "kind": "drug",
+      "units": [
+       {
+        "key": "base",
+        "name": "أمبول",
+        "factor": "1.0000"
+       }
+      ],
+      "qty": "6.0000",
+      "cost": "0.0000",
+      "sale": "72.0000"
+     }
+    ],
+    "totals": {
+     "cost": "1781.5400",
+     "sale": "16858.0000",
+     "items": "9.0000",
+     "negative": "0.0000"
+    }
+   }
+  },
+  "treasuryTotals": {
+   "count": "0.0000",
+   "cash": "0.0000",
+   "card": "0.0000",
+   "credit": "0.0000",
+   "discount": "0.0000",
+   "net": "0.0000",
+   "out": "0.0000"
+  },
+  "treasurySections": []
+ },
+ "known": [
+  {
+   "name": "ربط الأرقام الكسرية في مشغّل SQL Server",
+   "where": "src/db/mssql.js سطر 14: أي رقم غير صحيح بيتربط Decimal(12,2)",
+   "effect": "تكلفة الأصناف (DECIMAL(12,4)) ممكن تتقرّب لخانتين على SQL Server فقط. SQLite بيحتفظ بـ4 خانات، فالخط ده مش بيكشف الفرق",
+   "sqliteCostScale": 4,
+   "example": {
+    "perBase": "100/14",
+    "stored4": "7.1429"
+   }
+  }
+ ]
+}
