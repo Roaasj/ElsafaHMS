@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-cd /d "%~dp0app"
+cd /d "%~dp0"
 set LOG=%~dp0stress-log.txt
 echo ===== بدء %date% %time% ===== > "%LOG%"
 call npm install --no-audit --no-fund >> "%LOG%" 2>&1
