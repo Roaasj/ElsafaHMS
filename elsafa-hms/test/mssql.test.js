@@ -24,7 +24,7 @@ test('mssql: TOP', () => {
 test('mssql: تحديثات القاعدة بتتقسم صح (GO)', async () => {
   const { migrations, splitSql, LATEST } = await import('../src/db/migrate.js');
   const { readFileSync } = await import('node:fs');
-  assert.equal(LATEST(), 20);
+  assert.equal(LATEST(), 26);
   const m4 = splitSql(readFileSync(migrations().find((m) => m.version === 4).path, 'utf8'));
   assert.ok(m4.some((p) => p.startsWith('ALTER TABLE Users DROP CONSTRAINT CK_Users_Role')) && m4.some((p) => p.startsWith('CREATE TABLE PayOrders')));
   const m2 = migrations().find((m) => m.version === 2);

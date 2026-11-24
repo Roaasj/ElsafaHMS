@@ -34,6 +34,9 @@ const ALLOW = [
   ['public/js/views/stores.js', 'l.counted - l.systemQty) * 100) / 100', 'فرق كمية جرد'],
   ['public/js/views/settings.js', 'u.dataset.up) / 100', 'زيادة % على السعر بتتقرّب لجنيه كامل'],
   ['src/lib/barcode.js', 'toFixed(2)', 'إحداثيات SVG للباركود'],
+  ['src/lib/eta.js', 'Math.round(n * 100) / 100', 'تقريب مصلحة الضرائب (إيصال إلكتروني)'],
+  ['src/lib/eta.js', 'cfg.vatPct / 100', 'نسبة الضريبة'],
+  ['src/lib/eta.js', "currency: 'EGP'", 'عملة الإيصال الإلكتروني ثابتة EGP بمتطلبات المصلحة'],
 ];
 
 test('مفيش تعبيرات فلوس أو عملة ثابتة خارج money.js', () => {
